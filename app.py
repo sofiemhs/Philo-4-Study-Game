@@ -1,29 +1,34 @@
 import streamlit as st
-import random
 
 # --- PAGE CONFIGURATION & BEAR THEME ---
-st.set_page_config(page_title="Beary Good Phil 4 Study Game", page_icon="🐻", layout="centered")
+st.set_page_config(page_title="Beary Good Phil 4 Adventure", page_icon="🐻", layout="centered")
 
-# Custom CSS for a cute Bear / Forest Theme
 st.markdown("""
     <style>
     .stApp {
         background-color: #f4f1ea;
         color: #3e2723;
     }
-    h1 {
+    h1, h2, h3 {
         color: #5d4037;
         font-family: 'Courier New', Courier, monospace;
         text-align: center;
     }
-    .question-box {
+    .story-box {
         background-color: #e7cda2;
         padding: 20px;
         border-radius: 15px;
         border: 2px solid #8d6e63;
         margin-bottom: 20px;
         font-size: 18px;
-        font-weight: bold;
+    }
+    .vocab-box {
+        background-color: #c8e6c9;
+        padding: 15px;
+        border-radius: 10px;
+        border-left: 5px solid #2e7d32;
+        margin-top: 15px;
+        margin-bottom: 15px;
     }
     .stButton>button {
         background-color: #795548;
@@ -31,206 +36,223 @@ st.markdown("""
         border-radius: 10px;
         width: 100%;
         font-weight: bold;
+        padding: 10px;
     }
     .stButton>button:hover {
         background-color: #5d4037;
         color: #ffb300;
     }
-    .explanation-box {
-        background-color: #c8e6c9;
-        padding: 15px;
-        border-radius: 10px;
-        border-left: 5px solid #2e7d32;
-        margin-top: 15px;
-    }
-    .wrong-box {
-        background-color: #ffcdd2;
-        padding: 15px;
-        border-radius: 10px;
-        border-left: 5px solid #c62828;
-        margin-top: 15px;
-    }
     </style>
 """, unsafe_allow_html=True)
 
-st.title("🐻 Beary Good Phil 4 Study Game 🐾")
-st.markdown("*Test your knowledge on Thomson, Marquis, Pogge, and Clinical Trials!*")
+# --- SESSION STATE MANAGEMENT ---
+# We use this to keep track of what "page" or "chapter" of the story you are on.
+if 'stage' not in st.session_state:
+    st.session_state.stage = 0
 
-# --- QUESTION BANK ---
-# You can add as many questions as you want here by copying the format!
-questions = [
-    {
-        "question": "In the VIP Honda Civic case, a gang of car thieves leaves your car open and running, and the other Honda Civic owner mistakenly takes your car. What does this case provide a counterexample to?",
-        "options": [
-            "The Direct Killing Argument",
-            "Exception to Moral Freedom",
-            "Rights generators #1, #2, and #3 from Handout #3.3",
-            "The Moderate Pro-Life View"
-        ],
-        "answer": "Rights generators #1, #2, and #3 from Handout #3.3",
-        "explanation": "According to Handout 3.3 and your Practice Test #2, this specific case is meant to be a compelling candidate counterexample to the first three rights generation principles."
-    },
-    {
-        "question": "According to your handout on Surfaxin, what is the 'Therapeutic Misconception'?",
-        "options": [
-            "The belief that placebos actually cure diseases.",
-            "Confusing the main goal of a researcher (getting info) with the main goal of a doctor (preserving patient health).",
-            "The belief that clinical trials are always morally permissible.",
-            "The assumption that active-rich trials are always better than placebo-poor trials."
-        ],
-        "answer": "Confusing the main goal of a researcher (getting info) with the main goal of a doctor (preserving patient health).",
-        "explanation": "Handout #2.0 explicitly defines the therapeutic misconception as the failure to separate a doctor's goal (patient health) from a researcher's goal (getting information)."
-    },
-    {
-        "question": "Which of the following correctly identifies D-Labs' self-interested preferences regarding which type of trial to run (from best for them to worst)?",
-        "options": [
-            "placebo-rich > active-rich > placebo-poor > active-poor",
-            "active-rich > active-poor > placebo-rich > placebo-poor",
-            "placebo-poor > active-poor > placebo-rich > active-rich",
-            "active-poor > placebo-poor > active-rich > placebo-rich"
-        ],
-        "answer": "placebo-rich > active-rich > placebo-poor > active-poor",
-        "explanation": "Companies generally prefer placebo trials because they require smaller sample sizes and are cheaper/faster to run. 'Rich' countries are preferred if they can afford the drugs later."
-    },
-    {
-        "question": "According to Thomson, what does the 'Extreme View' (EV) on abortion claim?",
-        "options": [
-            "Abortion is impermissible except to save the mother's life.",
-            "Abortion is always impermissible, even to save the mother's life.",
-            "Abortion is impermissible unless the mother performs it herself.",
-            "Abortion is always permissible."
-        ],
-        "answer": "Abortion is always impermissible, even to save the mother's life.",
-        "explanation": "Handout #3.2 defines the Extreme View (EV) as 'Abortion is always impermissible.' It does not even make exceptions for the life of the mother."
-    },
-    {
-        "question": "In Thomson's arguments, how does the 'Slightly Less Extreme View' (SLEV) differ from the Moderate View (Mod-pro)?",
-        "options": [
-            "SLEV allows doctors to perform the abortion, Mod-pro does not.",
-            "SLEV says only the mother herself can perform the emergency abortion to save her life; third parties (doctors) cannot.",
-            "SLEV allows abortion for rape, Mod-pro does not.",
-            "SLEV is Marquis's view, Mod-pro is Thomson's."
-        ],
-        "answer": "SLEV says only the mother herself can perform the emergency abortion to save her life; third parties (doctors) cannot.",
-        "explanation": "Handout #3.2 notes that under SLEV, a woman may perform an abortion on herself to save her life, but a doctor (a third party) may not. The Moderate view allows the doctor to intervene."
-    },
-    {
-        "question": "What is the main point of Thomson's Basic Violinist Case?",
-        "options": [
-            "To prove that fetuses are not persons.",
-            "To show that the right to life does NOT include the right to be given the bare minimum one needs for continued life (like use of another's body).",
-            "To prove the Direct Killing Argument is flawlessly logical.",
-            "To argue for Pogge's Exception to Moral Freedom."
-        ],
-        "answer": "To show that the right to life does NOT include the right to be given the bare minimum one needs for continued life (like use of another's body).",
-        "explanation": "Even if the violinist has a right to life, that right doesn't entitle him to use your kidneys for nine months. Thomson uses this to argue that a fetus's right to life doesn't automatically grant it the right to use the mother's body."
-    },
-    {
-        "question": "What is the core premise of Don Marquis's argument against abortion?",
-        "options": [
-            "Abortion is a violation of the mother's bodily autonomy.",
-            "Abortion is wrong because it deprives the fetus of a valuable future ('a future like ours').",
-            "Abortion is wrong solely based on religious dogma.",
-            "Abortion is wrong because fetuses feel pain."
-        ],
-        "answer": "Abortion is wrong because it deprives the fetus of a valuable future ('a future like ours').",
-        "explanation": "Marquis argues that the primary reason killing adult humans is wrong is that it deprives them of a valuable future. He extends this to fetuses, claiming they also possess a 'future like ours'."
-    },
-    {
-        "question": "According to the 'Direct Killing Argument' (DKA) presented in Handout 3.1, why might a doctor refuse an emergency abortion?",
-        "options": [
-            "Because letting the mother die is passive, whereas abortion involves directly killing an innocent person.",
-            "Because the mother doesn't morally own her body.",
-            "Because of the therapeutic misconception.",
-            "Because the fetus has explicitly requested to use the body."
-        ],
-        "answer": "Because letting the mother die is passive, whereas abortion involves directly killing an innocent person.",
-        "explanation": "Premise 6.4 of the DKA states that if one's only options are directly killing an innocent person or letting a person die, one must prefer letting the person die. Thomson attacks this."
-    },
-    {
-        "question": "In the roommate case (Handout #1.0), what is the primary philosophical distinction being highlighted?",
-        "options": [
-            "Ontological Moral Skepticism vs. Epistemic Moral Realism",
-            "Moral considerations (reasons) vs. all-things-considered conclusive moral norms (wrong/impermissible).",
-            "The rights of the roommate vs. the rights of the landlord.",
-            "Active-poor vs. placebo-poor scenarios."
-        ],
-        "answer": "Moral considerations (reasons) vs. all-things-considered conclusive moral norms (wrong/impermissible).",
-        "explanation": "The handout explicitly uses the roommate locking you in the bathroom to distinguish between individual moral reasons that weigh on an action, versus the final, all-things-considered verdict of whether it was wrong."
-    },
-    {
-        "question": "According to Pogge (Handout 2.2), what is 'Peter Singer’s famous argument' compared against?",
-        "options": [
-            "Thomson's Violinist",
-            "Pogge's proposal, which is much narrower in application than Singer's broad principle to prevent bad things.",
-            "Marquis's Future Like Ours",
-            "The Havrix Trial guidelines"
-        ],
-        "answer": "Pogge's proposal, which is much narrower in application than Singer's broad principle to prevent bad things.",
-        "explanation": "Singer argues that if we can prevent something bad without sacrificing anything nearly as important, we are obligated to do so. Pogge's requirement for drug companies is much narrower and specific to their institutional roles."
-    }
-]
+def next_stage():
+    st.session_state.stage += 1
 
-# --- GAME LOGIC & SESSION STATE ---
-if 'current_q' not in st.session_state:
-    st.session_state.current_q = 0
-    st.session_state.score = 0
-    st.session_state.answered = False
-    st.session_state.selected_option = None
-    # Shuffle options for the first question
-    random.shuffle(questions[0]['options'])
+def reset_game():
+    for key in list(st.session_state.keys()):
+        del st.session_state[key]
+    st.session_state.stage = 0
 
-def next_question():
-    st.session_state.current_q += 1
-    st.session_state.answered = False
-    st.session_state.selected_option = None
-    if st.session_state.current_q < len(questions):
-        random.shuffle(questions[st.session_state.current_q]['options'])
+# --- THE INTERACTIVE LESSON ---
 
-def check_answer(option):
-    st.session_state.selected_option = option
-    st.session_state.answered = True
-    if option == questions[st.session_state.current_q]['answer']:
-        st.session_state.score += 1
-
-# --- UI DISPLAY ---
-st.sidebar.title("🐾 Bear Tracker")
-st.sidebar.write(f"**Score:** {st.session_state.score} / {len(questions)}")
-st.sidebar.write(f"**Progress:** Question {st.session_state.current_q + 1} of {len(questions)}")
-st.sidebar.markdown("---")
-st.sidebar.markdown("Keep going! You're going to crush Exam 2 tomorrow. 🐻💪")
-
-if st.session_state.current_q < len(questions):
-    q = questions[st.session_state.current_q]
+if st.session_state.stage == 0:
+    st.title("🐻 Beary Good Phil 4 Adventure 🐾")
+    st.markdown("### An Interactive Ethics Story")
+    st.markdown("Welcome to your study adventure! Instead of just answering questions, you are going to *live* through the thought experiments from Professor McHose's class.")
+    st.markdown("We will travel through **Moral Skepticism**, **Clinical Trials**, and **The Ethics of Abortion**. Let's learn the fancy vocab using simple stories!")
     
-    st.markdown(f"<div class='question-box'>Q{st.session_state.current_q + 1}: {q['question']}</div>", unsafe_allow_html=True)
-    
-    if not st.session_state.answered:
-        for option in q['options']:
-            if st.button(option):
-                check_answer(option)
-                st.rerun()
-    else:
-        # Show what they selected
-        st.write(f"You selected: **{st.session_state.selected_option}**")
-        
-        if st.session_state.selected_option == q['answer']:
-            st.markdown("<div class='explanation-box'>🎉 <strong>Correct! Beary good job!</strong><br><br>" + q['explanation'] + "</div>", unsafe_allow_html=True)
-        else:
-            st.markdown("<div class='wrong-box'>🐻 <strong>Oh no, that's not quite right.</strong><br><br><strong>Correct Answer:</strong> " + q['answer'] + "<br><br><strong>Why?</strong> " + q['explanation'] + "</div>", unsafe_allow_html=True)
-        
-        st.write("---")
-        if st.button("Next Question 🐾"):
-            next_question()
-            st.rerun()
+    if st.button("Start the Adventure! 🐾"):
+        next_stage()
+        st.rerun()
 
-else:
-    st.success("🎉 You finished the game!")
+# ---------------------------------------------------------
+# CHAPTER 1: MORAL SKEPTICISM (Handouts 1.0 & 1.1)
+# ---------------------------------------------------------
+elif st.session_state.stage == 1:
+    st.title("Chapter 1: The Evil Roommate")
+    
+    st.markdown("""
+    <div class='story-box'>
+    <b>The Situation:</b><br>
+    You have a massive philosophy exam tomorrow. You leave your dorm room for a second, and when you return, your roommate locks you in the bathroom from the outside! 
+    They yell through the door: <i>"I'm keeping you in here so I can study and beat the curve!"</i> They leave you locked in for hours.
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.write("Was it wrong for your roommate to lock you in the bathroom?")
+    
+    col1, col2 = st.columns(2)
+    with col1:
+        if st.button("Yes, absolutely wrong!"):
+            st.session_state.ch1_answered = True
+    with col2:
+        if st.button("Maybe not?"):
+            st.session_state.ch1_answered = True
+
+    if st.session_state.get('ch1_answered', False):
+        st.markdown("""
+        <div class='vocab-box'>
+        <b>🐻 Professor Bear says:</b> Almost 100% of people say YES, it was wrong. But philosophers use this to separate two important vocab words:<br><br>
+        1. <b>Moral Considerations (or Moral Reasons):</b> The little weights on the scale. (e.g., "It made you sad," "It helped them pass.")<br>
+        2. <b>All-Things-Considered Moral Norms (or Conclusive Moral Norms):</b> The final verdict after weighing everything. This is when we say something is officially "Morally Impermissible" (wrong).
+        <br><br>
+        If you think there are NO moral facts at all, you might be an <b>Ontological Moral Skeptic (OMS)</b>. But getting locked in a bathroom makes OMS feel pretty silly, right?
+        </div>
+        """, unsafe_allow_html=True)
+        if st.button("Next Chapter: Off to Bolivia ✈️", on_click=next_stage):
+            pass
+
+# ---------------------------------------------------------
+# CHAPTER 2: CLINICAL TRIALS & POGGE (Handouts 2.0 - 2.2)
+# ---------------------------------------------------------
+elif st.session_state.stage == 2:
+    st.title("Chapter 2: The Surfaxin Trial")
+    
+    st.markdown("""
+    <div class='story-box'>
+    <b>The Situation:</b><br>
+    You are now the CEO of "D-Lab", a pharmaceutical company. You have a new drug called Surfaxin that helps premature babies breathe. You want to test it. 
+    You go to Bolivia because it's cheaper. You run a trial where half the dying babies get Surfaxin, and half get a <b>placebo</b> (fake treatment like sugar water)—even though good treatments already exist in the US!
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.write("Why might the parents of the Bolivian babies be confused about your intentions?")
+    
+    if st.button("They think you are trying to heal their babies, not just run an experiment."):
+        st.session_state.ch2_answered = True
+    if st.button("They think you are giving them money."):
+        st.session_state.ch2_answered = True
+
+    if st.session_state.get('ch2_answered', False):
+        st.markdown("""
+        <div class='vocab-box'>
+        <b>🐻 Professor Bear says:</b> You nailed it! This confusion has a specific name you need for the test:<br><br>
+        <b>The Therapeutic Misconception:</b> This is when a patient confuses a <i>researcher's</i> main goal (getting info/data) with a <i>doctor's</i> main goal (preserving patient health).<br><br>
+        Philosopher Thomas Pogge compares this to an <b>Eccentric Filmmaker</b> who gives poor people boxes that either have $30,000 or a paint-bomb inside just for a laugh. Pogge argues that even if you are providing a "net benefit" to some, you can't just take advantage of desperate people (This is called the <b>Exception to Moral Freedom</b>).
+        </div>
+        """, unsafe_allow_html=True)
+        if st.button("Next Chapter: A Strange Hospital 🏥", on_click=next_stage):
+            pass
+
+# ---------------------------------------------------------
+# CHAPTER 3: THOMSON & THE VIOLINIST (Handouts 3.0 - 3.2)
+# ---------------------------------------------------------
+elif st.session_state.stage == 3:
+    st.title("Chapter 3: The Famous Violinist")
+    
+    st.markdown("""
+    <div class='story-box'>
+    <b>The Situation:</b><br>
+    You wake up in a hospital bed. You look to your left and see a famously talented violinist hooked up to your kidneys with tubes! 
+    The Society of Music Lovers kidnapped you because only your blood type can filter his blood. If you unplug him right now, he will die. If you stay in bed for 9 months, he will be cured.
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.write("Does the violinist's 'Right to Life' mean you are morally obligated to stay plugged in for 9 months?")
+    
+    col1, col2 = st.columns(2)
+    with col1:
+        if st.button("Yes, a right to life means a right to whatever you need to survive."):
+            st.session_state.ch3_answered = True
+    with col2:
+        if st.button("No, his right to life doesn't give him the right to use YOUR body."):
+            st.session_state.ch3_answered = True
+
+    if st.session_state.get('ch3_answered', False):
+        st.markdown("""
+        <div class='vocab-box'>
+        <b>🐻 Professor Bear says:</b> According to philosopher Judith Jarvis Thomson, the answer is NO!<br><br>
+        Thomson argues that the <b>Right to Life</b> does NOT include the right to be given the bare minimum one needs for continued life (like the use of someone else's body).<br><br>
+        She is attacking the <b>Extreme View (EV)</b>, which claims abortion is <i>always</i> impermissible, even to save the mother's life. Thomson proves that just because a fetus has a right to life, it doesn't automatically mean it has a right to use the mother's body!
+        </div>
+        """, unsafe_allow_html=True)
+        if st.button("Next Chapter: Dude, Where's My Car? 🚗", on_click=next_stage):
+            pass
+
+# ---------------------------------------------------------
+# CHAPTER 4: THE HONDA CIVIC CASE (Handout 3.3)
+# ---------------------------------------------------------
+elif st.session_state.stage == 4:
+    st.title("Chapter 4: The VIP Honda Civic")
+    
+    st.markdown("""
+    <div class='story-box'>
+    <b>The Situation:</b><br>
+    You paid extra for VIP parking at a concert. A gang of sophisticated car thieves breaks in, but they get spooked by the cops. They leave your Honda Civic running with the door open. 
+    An innocent guy walks out of the concert, thinks your Honda is his Honda, and drives it home.
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.write("Does this innocent guy now have a 'Right' to your car just because he didn't do anything malicious?")
+    
+    if st.button("Nope, it's still my car!"):
+        st.session_state.ch4_answered = True
+
+    if st.session_state.get('ch4_answered', False):
+        st.markdown("""
+        <div class='vocab-box'>
+        <b>🐻 Professor Bear says:</b> Exactly. Professor McHose uses this highly specific case as a <b>counterexample</b> to Rights Generators #1, #2, and #3.<br><br>
+        Just because the guy is innocent and ended up in your car by accident (or through the actions of a third party), he doesn't gain the moral right to keep your car. This analogy is used to explore how a fetus might (or might not) acquire the right to use a mother's body!
+        </div>
+        """, unsafe_allow_html=True)
+        if st.button("Next Chapter: Marquis and the Future 🔮", on_click=next_stage):
+            pass
+
+# ---------------------------------------------------------
+# CHAPTER 5: MARQUIS (Handout 4)
+# ---------------------------------------------------------
+elif st.session_state.stage == 5:
+    st.title("Chapter 5: A Future Like Ours")
+    
+    st.markdown("""
+    <div class='story-box'>
+    <b>The Situation:</b><br>
+    You meet philosopher Don Marquis. He doesn't want to talk about religion or whether a fetus is a "person." Instead, he asks you a simple question: 
+    <i>"Why is it wrong to kill you, an adult human being, right now?"</i>
+    </div>
+    """, unsafe_allow_html=True)
+
+    st.write("According to Marquis, what makes killing an adult so terribly wrong?")
+    
+    if st.button("Because it causes pain."):
+        st.session_state.ch5_answered = True
+    if st.button("Because it deprives the victim of all their future experiences and joys."):
+        st.session_state.ch5_answered = True
+
+    if st.session_state.get('ch5_answered', False):
+        st.markdown("""
+        <div class='vocab-box'>
+        <b>🐻 Professor Bear says:</b> You got it! Marquis has a very famous argument:<br><br>
+        <b>A Future Like Ours (FLO):</b> Marquis argues that killing is wrong because it deprives someone of a valuable future. Since a fetus has a "future like ours" waiting for it, killing a fetus is just as wrong as killing an adult.<br><br>
+        This argument avoids messy debates about "personhood" and focuses strictly on the loss of future value.
+        </div>
+        """, unsafe_allow_html=True)
+        if st.button("Finish Adventure! 🎉", on_click=next_stage):
+            pass
+
+# ---------------------------------------------------------
+# END SCREEN
+# ---------------------------------------------------------
+elif st.session_state.stage == 6:
     st.balloons()
-    st.markdown(f"### Final Score: {st.session_state.score} / {len(questions)}")
-    st.markdown("You are officially prepared to tackle Prof. McHose's exam. Go get some sleep!")
-    if st.button("Restart Game 🐻"):
-        st.session_state.current_q = 0
-        st.session_state.score = 0
-        st.session_state.answered = False
+    st.title("🎉 You Did It! 🎉")
+    st.markdown("""
+    You have successfully navigated through the major thought experiments of your exam!
+    
+    **Review Checklist before tomorrow:**
+    * ✅ **Moral Skepticism:** Roommate case, Moral considerations vs All-things-considered norms.
+    * ✅ **Clinical Trials (Pogge):** Surfaxin, Therapeutic Misconception, Eccentric Filmmaker.
+    * ✅ **Abortion (Thomson):** The Violinist, Extreme View, Honda Civic case.
+    * ✅ **Abortion (Marquis):** A Future Like Ours (FLO).
+    
+    Get some sleep, eat a good breakfast, and go crush Exam 2! 🐻🐾
+    """)
+    
+    if st.button("Play Again?"):
+        reset_game()
         st.rerun()
