@@ -33,14 +33,14 @@ vocab_defs = {
     "A Future Like Ours (FLO)": "Marquis: Killing is wrong because it deprives the victim of a valuable future."
 }
 
-# --- CURRICULUM WITH CHAPTER EXAMS (5 Qs Each) ---
+# --- CURRICULUM WITH FULL EXPLANATIONS & CHAPTER EXAMS ---
 curriculum = {
     1: {
         "title": "Chapter 1: Pogge",
         "sections": [
             {
                 "subtitle": "Handout 2.2 p10-17",
-                "text": "In Handout 2.2, Pogge discusses pharmaceutical testing in developing nations. He introduces the Exception to Moral Freedom: You cannot exploit desperate people for your own ends, even if you provide them with a 'net benefit' (as seen in the Eccentric Filmmaker case, where starving people are given a 50/50 chance at cash or a paint bomb). D-Lab's preferred trial is placebo-rich, but since they can't do that, they do placebo-poor in Bolivia, exploiting desperation.",
+                "text": "In Handout 2.2, Pogge discusses pharmaceutical testing in developing nations. He introduces a critical concept called the **Exception to Moral Freedom**. This principle states that you cannot exploit desperate people for your own ends, even if you provide them with a 'net benefit'. He proves this using the 'Eccentric Filmmaker' case, where a rich man gives starving people a 50/50 chance at cash or a paint bomb for his own amusement. Even though the money provides a net benefit, the exploitation violates the Exception to Moral Freedom.\n\nWe also examine the **Therapeutic Misconception**, which occurs when a trial participant mistakenly believes the researcher is acting as a doctor. They confuse a researcher's goal (gathering data) with a doctor's goal (healing the patient).\n\nWhen a company like D-Lab chooses a clinical trial, their self-interest dictates they most prefer **Placebo-rich** trials (they are fast/cheap, and rich countries can afford the drug later). However, because the US FDA bans placebo trials when existing cures are available, D-Lab cannot run a placebo-rich trial. Instead, they run a **Placebo-poor** trial in Bolivia, exploiting the looser laws and desperation of the developing nation.",
                 "drill_prompt": None 
             }
         ],
@@ -57,7 +57,7 @@ curriculum = {
         "sections": [
             {
                 "subtitle": "RtL, Violinist, EV, and DKA",
-                "text": "The Basic Right to Life (RtL) Argument assumes the fetus is a person with a right to life, concluding abortion is impermissible. Thomson attacks this with the Basic Violinist Case. He has a right to life, but that does NOT mean he has a right to use your kidneys. \nThe Extreme View (EV) claims abortion is ALWAYS impermissible. The Direct Killing Argument (DKA) supports this, using the technical definition that 'direct killing' is killing as an end or a means.",
+                "text": "The **Basic Right to Life (RtL) Argument** begins by assuming the fetus is a person with a right to life, and concludes abortion is impermissible. Thomson attacks this leap in logic with the **Basic Violinist Case**. Imagine you are kidnapped and your kidneys are hooked up to a famous violinist. The violinist has a right to life, but that does NOT mean he has a right to use your kidneys. Thus, the primary purpose of the Violinist case is to show a right to life does not guarantee use of another person's body.\n\nWe also look at strict pro-life views. The **Extreme View (EV)** claims abortion is ALWAYS impermissible, with absolutely no exceptions—not even to save the mother's life. The **Direct Killing Argument (DKA)** is used to support this, arguing that directly killing an innocent is morally worse than simply letting someone (the mother) die. To clarify, Thomson defines **'direct killing'** strictly as killing as an end in itself, or killing as a means to some end.",
                 "drill_prompt": "What 2-word phrase describes the view that abortion is ALWAYS impermissible?", "drill_ans": ["extreme view", "ev"], "drill_exact": "Extreme View (EV)"
             }
         ],
@@ -74,7 +74,7 @@ curriculum = {
         "sections": [
             {
                 "subtitle": "Counterexamples, Bus Case, SLEV, Moral Ownership",
-                "text": "Thomson uses counterexamples against the DKA (specifically Premise 6.4, which says you must let yourself die rather than directly kill). The Chet & Abilene (Bus) Case shows you CAN push an innocent crushing person off you. Esmerelda shows you don't have a duty to let yourself die. \nThe Slightly Less Extreme View (SLEV) says only the mother can abort to save her life. Thomson attacks SLEV using 'Moral Ownership'—the mother owns her body, so she can authorize a doctor to help her.",
+                "text": "Thomson uses specific counterexamples to attack Premise 6.4 of the Direct Killing Argument (which claims you must always prefer letting yourself die rather than directly killing an innocent). She uses the **Chet & Abilene (Bus) Case**: If Abilene is thrown in a bus crash and is going to crush Chet to death, Chet is morally permitted to push her off to save his life. Abilene is considered perfectly *innocent* because she didn't intend to fall, but Chet can still directly kill her to survive. Similarly, the **Esmerelda** case shows that a person does not have a duty to simply let themselves die.\n\nNext, we look at the **Slightly Less Extreme View (SLEV)**. SLEV says a mother CAN perform an abortion to save her own life, but a doctor (third-party) CANNOT intervene. Thomson attacks SLEV using the concept of **Moral Ownership**. Because the mother morally owns her own body, she possesses the right to authorize a doctor's help.",
                 "drill_prompt": "What case attacks the duty to let yourself die using a crushing passenger?", "drill_ans": ["bus case", "chet and abilene"], "drill_exact": "The Bus Case"
             }
         ],
@@ -91,7 +91,7 @@ curriculum = {
         "sections": [
             {
                 "subtitle": "Mod-pro, 2nd RtL, and Thomson's Rights",
-                "text": "The Moderate Pro-life View (Mod-pro) claims abortion is impermissible EXCEPT to save the mother's life (a doctor MAY perform it). The 2nd version of the RtL Argument states: A fetus' right to life trumps considerations... with the possible exception of the mother's right to life. \nThomson states the Right to Life does NOT include the right to the bare minimum one needs for continued life.",
+                "text": "The **Moderate Pro-life View (Mod-pro)** claims abortion is impermissible EXCEPT to save the mother's life. Unlike SLEV, Mod-pro explicitly allows a doctor to perform the emergency abortion. However, if the mother's life is not in danger (i.e., a Typical case), abortion is strictly impermissible under Mod-pro.\n\nThis aligns perfectly with the **2nd version of the RtL Argument**. You must memorize Premise 4 of this argument: It states that a fetus's right to life trumps all other considerations *with the one possible exception of the mother's right to life*.\n\nThomson strongly disagrees with this because of how she defines moral rights. According to Thomson, the **Right to Life** is simply the right *not to be killed unjustly*. It does NOT include the right to the bare minimum one needs for continued life (meaning, it does not guarantee the fetus the right to use the mother's body).",
                 "drill_prompt": "What view allows a doctor to perform a life-saving abortion? (Mod-___)", "drill_ans": ["mod pro", "mod-pro"], "drill_exact": "Mod-pro"
             }
         ],
@@ -108,7 +108,7 @@ curriculum = {
         "sections": [
             {
                 "subtitle": "Typical Cases, Large Sacrifice, & Rights Generators",
-                "text": "Emergency Cases = mother will die. Typical Cases = less weighty reasons. Thomson argues if the mother must make a 'large sacrifice', and the fetus has no right to demand it, she is not morally required to do so. \nRights generators #1-4 claim intercourse grants the fetus rights. Thomson disproves this with the Identical Cars (VIP Honda Civic) case: An innocent arrival doesn't grant property rights.",
+                "text": "Thomson separates cases into two categories. **Emergency Cases** are life-or-death. **Typical Cases** are much more common: the mother wants an abortion for less weighty reasons than preserving her own life (e.g., she doesn't want to be a parent). Thomson argues for permissibility in Typical cases using the 'Large Sacrifice' argument: If carrying the fetus requires the mother to make a 'large sacrifice', and the fetus does not have a strict moral right to demand it, she is not morally required to do so.\n\nBut does the fetus have a right to demand it? Pro-life advocates use **Rights Generators 1-4** to argue that because the mother engaged in intercourse, she voluntarily 'generated' a right for the fetus to use her body. Thomson disproves this using the **Identical Cars (VIP Honda Civic)** case. Just because an innocent person mistakenly gets into your open, running car, they do NOT gain a moral right to keep your car. This acts as a 'Counterexample' proving that an innocent arrival does not automatically grant property/bodily rights.",
                 "drill_prompt": "What do we call a scenario that disproves a rule (like the Identical Cars case)?", "drill_ans": ["counterexample", "counter example"], "drill_exact": "Counterexample"
             }
         ],
@@ -125,7 +125,7 @@ curriculum = {
         "sections": [
             {
                 "subtitle": "Validity, Soundness, and Conditionals",
-                "text": "To test for validity: suppose all premises are true. If it's possible for the conclusion to be false, it is INVALID. Soundness means it is VALID and all premises are ACTUALLY true. \nConditional = 'If X, then Y'. Antecedent = the 'If' part. Consequent = the 'Then' part.",
+                "text": "Professor McHose tests heavily on logical structure. \n\nTo test an argument for **Validity**: You must suppose that all the premises are true. If it is mathematically/logically possible for the conclusion to be false while the premises are true, the argument is INVALID. \n\n**Soundness** is a higher bar. An argument is Sound ONLY if it is Valid AND all of its premises are actually true in reality. Therefore, if an argument is perfectly valid, but one of the premises is factually false in the real world, the argument is NOT sound.\n\nWe also use **Conditionals**, which are 'If/Then' statements. The **Antecedent** is the 'If' part of the sentence. The **Consequent** is the 'Then' part.",
                 "drill_prompt": "What is an argument that is valid AND has all true premises called?", "drill_ans": ["sound", "soundness"], "drill_exact": "Sound"
             }
         ],
@@ -142,7 +142,7 @@ curriculum = {
         "sections": [
             {
                 "subtitle": "The Basic Right to Life Argument",
-                "text": "1. Fetus is a person.\n2. Every person has a right to life.\n3. Fetus has a right to life.\n4. A person's right to life trumps bodily rights and makes killing impermissible.\n5. Abortion kills fetus.\nC: Abortion is impermissible.",
+                "text": "This is the classic pro-life argument Thomson is attacking. It goes:\n1. Fetus is a person. (This explicitly assumes the fetus holds personhood).\n2. Every person has a right to life. (Therefore, all persons hold this right).\n3. Fetus has a right to life.\n4. A person's right to life trumps any rights another person might have regarding their body, making killing impermissible. (This is the crucial premise that claims the Right to Life overrides Bodily Autonomy).\n5. Abortion kills fetus.\nC: Abortion is impermissible.\n\nThomson grants Premise 1 (fetus is a person) for the sake of argument, but she completely disagrees with Premise 4.",
                 "drill_prompt": "Which premise claims the right to life trumps bodily rights?", "drill_ans": ["4", "premise 4"], "drill_exact": "Premise 4"
             }
         ],
@@ -159,7 +159,7 @@ curriculum = {
         "sections": [
             {
                 "subtitle": "Basic RtL Argument, Applied to the Violinist",
-                "text": "1. Violinist is a person. 2. Persons have RtL. 3. Violinist has RtL. 4. RtL trumps bodily rights. 5. Unhooking kills violinist. C: Impermissible to unhook yourself.\nBecause the conclusion is absurd (you CAN unhook), Thomson proves Premise 4 is false.",
+                "text": "Thomson applies the previous argument to her famous case:\n1. Violinist is a person.\n2. Persons have a Right to Life (RtL).\n3. Violinist has RtL. (Yes, Thomson agrees he does).\n4. RtL trumps bodily rights.\n5. Unhooking kills violinist. (Yes, Premise 5 confirms unhooking will kill him).\nC: It is impermissible to unhook yourself.\n\nThomson points out that the conclusion is absurd/false—you absolutely CAN unhook yourself from a kidnapped situation! Because the logic is valid but the conclusion is false, it proves that one of the premises must be false. Specifically, it proves that Premise 4 (that RtL trumps bodily rights) is false. Since Premise 4 is false, the argument is not Sound.",
                 "drill_prompt": "If the conclusion is false, the argument cannot be _______.", "drill_ans": ["sound"], "drill_exact": "Sound"
             }
         ],
@@ -175,8 +175,8 @@ curriculum = {
         "title": "Chapter 9: The Direct Killing Argument",
         "sections": [
             {
-                "subtitle": "The Direct Killing Argument",
-                "text": "2. Abortion is direct killing. 3. Fetus is innocent. 5. Not aborting is letting mother die. 6.4: If options are direct killing vs letting die, you must prefer letting die. C: Impermissible to abort.",
+                "subtitle": "The Direct Killing Argument (DKA)",
+                "text": "The DKA argues that passive deaths are better than active killing. \nPremise 2 claims abortion is 'direct killing'. \nPremise 3 claims the fetus is innocent. \nPremise 5 claims that NOT aborting is merely 'letting the mother die' (passive). \nPremise 6.4 is the core rule: It demands that if your only options are direct killing vs letting die, you MUST prefer letting the person die. \nPremise 6.2 offers an alternative rule, claiming direct killing is literally 'murder'. \nThe ultimate conclusion of the DKA is that abortion is impermissible even to save the mother, because you must prefer letting her die over directly killing the innocent fetus.",
                 "drill_prompt": "What is the 3-letter abbreviation for the Direct Killing Argument?", "drill_ans": ["dka"], "drill_exact": "DKA"
             }
         ],
@@ -193,7 +193,7 @@ curriculum = {
         "sections": [
             {
                 "subtitle": "DKA v6.2 Applied to the Violinist",
-                "text": "2. Unhooking is direct killing. 5. Not unhooking is letting yourself die. 6.2: Direct killing an innocent is murder, which is absolutely impermissible. C: Impermissible to unhook, even to save your life.",
+                "text": "Applying the DKA to the Violinist:\nPremise 2 frames unhooking yourself as 'direct killing'. \nPremise 5 claims that NOT unhooking is merely 'letting yourself die' from the strain on your kidneys.\nPremise 6.2 inserts the rule that direct killing an innocent is 'murder', which is absolutely impermissible. \nTherefore, the conclusion is: It is impermissible to unhook yourself, even to save your own life.\n\nOnce again, Thomson shows this conclusion is absurd. You are not required to let yourself die for the violinist! Because the conclusion is false, Premise 6.2 is exposed as deeply flawed in this context (unhooking is NOT murder).",
                 "drill_prompt": "Does Thomson believe you must stay hooked up to save your life?", "drill_ans": ["no", "false"], "drill_exact": "No"
             }
         ],
@@ -210,7 +210,7 @@ curriculum = {
         "sections": [
             {
                 "subtitle": "DKA Applied to the Bus Case",
-                "text": "2. Pushing the crushing passenger off is direct killing. 5. Not pushing is letting yourself die. C: Impermissible to push them off. Thomson shows this is absurd; you CAN push an innocent threat off.",
+                "text": "Thomson applies the DKA one last time to the Bus Case, where Abilene is falling and will crush Chet.\nPremise 2 classifies pushing Abilene off as 'direct killing of an innocent'.\nPremise 5 states that letting her crush you is merely 'letting yourself die'.\nThe DKA conclusion states it is impermissible to push her off. \n\nThomson uses this to absolutely demolish the DKA. The conclusion is absurd—Chet is absolutely allowed to push Abilene off to save his own life. This proves you are NOT morally required to sit back and let yourself die just because defending yourself requires directly killing an innocent threat.",
                 "drill_prompt": "Who is crushing Chet in the Bus Case?", "drill_ans": ["abilene"], "drill_exact": "Abilene"
             }
         ],
@@ -227,7 +227,7 @@ curriculum = {
         "sections": [
             {
                 "subtitle": "The Second Version of the Right to Life Argument",
-                "text": "4. A fetus' right to life trumps all considerations, with the possible exception of the mother's right to life. C: If a woman does not need an abortion to save her life, it is impermissible.",
+                "text": "This updated argument makes a concession to the mother. Premise 4 states: A fetus's right to life trumps all considerations, *with the possible exception of the mother's right to life*. \nBecause of this exception, the conclusion is: If a woman does NOT need an abortion to save her life (i.e., a Typical case), it is impermissible.\n\nThis argument perfectly aligns with the **Moderate Pro-Life (Mod-pro)** view, allowing abortions ONLY for emergencies. However, Thomson ultimately rejects this argument as well. She uses the 'Large Sacrifice' argument to prove that even in Typical cases (where her life is not in danger), a woman is not required to sacrifice her body for the fetus.",
                 "drill_prompt": "This argument perfectly aligns with which Pro-Life view? (Mod-___)", "drill_ans": ["mod pro", "mod-pro"], "drill_exact": "Mod-pro"
             }
         ],
