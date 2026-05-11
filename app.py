@@ -19,40 +19,141 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# --- COURSE DATA (Strictly from Notes) ---
+# --- COURSE DATA & VOCAB ---
 vocab_defs = {
-    "Ontological Moral Skepticism (OMS)": "The belief that there are no moral facts at all (e.g., nothing is truly 'wrong'). Professor McHose argues that cases like the Evil Roommate make this view seem absurd.",
-    "Moral Considerations": "The individual factors that weigh for or against an action (a.k.a moral reasons). These are just the 'weights on the scale'.",
-    "All-Things-Considered Moral Norms": "The final, conclusive verdict of whether an action is wrong or morally impermissible after weighing all the moral considerations.",
-    "Therapeutic Misconception": "When a participant in a clinical trial confuses a researcher's main goal (to get information) with a doctor's main goal (to preserve patient health).",
-    "Exception to Moral Freedom": "Pogge's principle: You cannot exploit desperate people for your own ends, even if you are providing them with a net benefit (demonstrated by the Eccentric Filmmaker case).",
-    "Extreme View (EV)": "The pro-life view that abortion is ALWAYS impermissible, even to save the mother's life.",
-    "Slightly Less Extreme View (SLEV)": "Abortion is impermissible EXCEPT to save the mother's life, AND the mother must perform it herself (a doctor/third party may not).",
-    "Right to Life (Thomson's definition)": "The right to not be killed unjustly. It does NOT include the right to be given the bare minimum one needs for continued life (such as the use of another person's body).",
-    "Counterexample": "A specific scenario used in philosophy to disprove a general rule or principle (e.g., the VIP Honda Civic case disproves Rights Generators 1-3).",
-    "A Future Like Ours (FLO)": "Don Marquis's argument that killing an adult is wrong because it deprives the victim of a valuable future. He argues that fetuses also possess this property, making abortion wrong."
+    "Exception to Moral Freedom": "Pogge: You cannot exploit desperate people for your own ends, even if providing a net benefit.",
+    "Extreme View (EV)": "Thomson 3.0: Abortion is ALWAYS impermissible.",
+    "Slightly Less Extreme View (SLEV)": "Thomson 3.1: Abortion is impermissible EXCEPT to save the mother's life AND the mother must perform it herself.",
+    "Moderate Pro-life View (Mod-pro)": "Thomson 3.2: Abortion is impermissible EXCEPT to save the mother's life (a doctor may perform it).",
+    "Direct Killing Argument (DKA)": "Thomson 3.0/3.1: Premise 6.4 claims if options are directly killing an innocent or letting someone die, you must prefer letting them die.",
+    "Right to Life (Thomson)": "Thomson 3.2: Does NOT include the right to be given the bare minimum one needs for continued life (like someone else's body).",
+    "Moral Ownership": "Thomson 3.1: The mother morally owns her own body, which is why a third party/doctor is permitted to help her.",
+    "Typical vs Emergency Cases": "Thomson 3.3: Emergency = mother will die. Typical = mother wants abortion for less weighty reasons.",
+    "Rights Generators 1-4": "Thomson 3.3: Suggested ways a fetus might gain a right to the body. Disproved by the Identical Cars case.",
+    "A Future Like Ours (FLO)": "Marquis: Killing is wrong because it deprives the victim of a valuable future."
 }
 
-exam_questions = [
+# --- MASSIVE EXAM QUESTION BANK (Strictly from Notes) ---
+all_exam_questions = [
     {
-        "q": "According to Pogge, which of the following principles entails (or 'says') that it would have been wrong for D-Lab to run the clinical trial that they originally planned to run in Bolivia?",
+        "q": "According to Pogge, which of the following principles entails that it would have been wrong for D-Lab to run the clinical trial in Bolivia?",
         "options": ["(a) Moral Freedom", "(b) Moral Conditional", "(c) Moral Constraint", "(d) Exception to Moral Freedom", "(e) Moral Exploitation"],
-        "ans": "(d) Exception to Moral Freedom"
+        "ans": "(d) Exception to Moral Freedom",
+        "exp": "Pogge specifically uses the Eccentric Filmmaker to demonstrate the 'Exception to Moral Freedom'—you cannot exploit desperate people even for a net benefit."
     },
     {
-        "q": "Pick the answer that correctly identifies D-Labs' self-interested preferences regarding which type of trial to run and where to run it.",
-        "options": ["(a) placebo-rich > active-rich > placebo-poor > active-poor", "(b) placebo-poor > active-poor > placebo-rich > active-rich", "(c) active-poor > placebo-poor > active-rich > placebo-rich", "(d) active-rich > active-poor > placebo-rich > placebo-poor"],
-        "ans": "(a) placebo-rich > active-rich > placebo-poor > active-poor"
+        "q": "Pick the answer that correctly identifies D-Labs' self-interested preferences regarding which type of trial to run.",
+        "options": ["(a) placebo-rich > active-rich > placebo-poor > active-poor", "(b) placebo-poor > active-poor > placebo-rich > active-rich", "(c) active-rich > active-poor > placebo-rich > placebo-poor"],
+        "ans": "(a) placebo-rich > active-rich > placebo-poor > active-poor",
+        "exp": "D-Lab wants Placebo-rich first because placebos are cheap/fast, and rich countries can afford the drug later."
     },
     {
         "q": "Pick the answer that correctly ranks the moral goodness of those possibilities.",
-        "options": ["(a) placebo-rich > active-rich > placebo-poor > active-poor", "(b) active-rich > active-poor > placebo-rich > placebo-poor", "(c) placebo-poor > active-poor > placebo-rich > active-rich"],
-        "ans": "(b) active-rich > active-poor > placebo-rich > placebo-poor"
+        "options": ["(a) placebo-rich > active-rich > placebo-poor > active-poor", "(b) active-rich > active-poor > placebo-rich > placebo-poor", "(c) active-poor > placebo-poor > active-rich > placebo-rich"],
+        "ans": "(b) active-rich > active-poor > placebo-rich > placebo-poor",
+        "exp": "Morally speaking, providing 'active' (real) treatment to 'rich' or 'poor' is always better than giving a placebo."
     },
     {
-        "q": "The VIP Honda Civic Case: Handout #3.3 presents three principles about rights generation. The case presented in this question provides a compelling counterexample to all three of those principles.",
+        "q": "The VIP Honda Civic Case: Handout 3.3 presents three principles about rights generation. This case provides a compelling counterexample to all three of those principles.",
         "options": ["(a) True", "(b) False"],
-        "ans": "(a) True"
+        "ans": "(a) True",
+        "exp": "True. The innocent driver accidentally taking your running Honda Civic disproves Rights Generators 1, 2, and 3, showing innocent arrival doesn't grant property rights."
+    },
+    {
+        "q": "According to Thomson (Handout 3.0), what does the Extreme View (EV) claim?",
+        "options": ["(a) Abortion is always impermissible.", "(b) Abortion is impermissible unless the mother's life is at risk.", "(c) Abortion is only permissible if performed by the mother herself."],
+        "ans": "(a) Abortion is always impermissible.",
+        "exp": "EV allows NO exceptions whatsoever, not even to save the mother's life."
+    },
+    {
+        "q": "According to Thomson (Handout 3.1), what does the Slightly Less Extreme View (SLEV) claim?",
+        "options": ["(a) Abortion is always impermissible.", "(b) A mother may abort to save her life, but a doctor/third party may not perform it.", "(c) A doctor may perform an emergency abortion."],
+        "ans": "(b) A mother may abort to save her life, but a doctor/third party may not perform it.",
+        "exp": "SLEV allows the mother to save herself, but explicitly forbids third parties (doctors) from intervening."
+    },
+    {
+        "q": "In Handout 3.1, Thomson uses the 'Chet & Abilene (Bus) Case' as a counterexample. What argument is it attacking?",
+        "options": ["(a) The Basic Right to Life Argument", "(b) Marquis's FLO", "(c) The Direct Killing Argument (DKA)"],
+        "ans": "(c) The Direct Killing Argument (DKA)",
+        "exp": "The Bus Case (where a passenger falls on you and you will die unless you push them off) is used to attack Premise 6.4 of the DKA, which says you must let yourself die rather than directly kill an innocent."
+    },
+    {
+        "q": "According to Thomson (Handout 3.2), what does the Moderate Pro-Life View (Mod-pro) claim?",
+        "options": ["(a) Abortion is always impermissible.", "(b) Abortion is impermissible except to save the mother's life.", "(c) Abortion is permissible for any reason."],
+        "ans": "(b) Abortion is impermissible except to save the mother's life.",
+        "exp": "Mod-pro allows a doctor to perform the abortion to save the mother's life, but forbids it in typical, non-emergency cases."
+    },
+    {
+        "q": "In the Second Version of the Right to Life Argument (Handout 3.2), Premise 4 states that a fetus's right to life trumps any other considerations EXCEPT...",
+        "options": ["(a) The mother's right to bodily autonomy", "(b) The mother's right to life", "(c) The fetus's future like ours"],
+        "ans": "(b) The mother's right to life",
+        "exp": "Premise 4 of the 2nd RtL Argument states that the fetus's right to life trumps everything *with the possible exception of the mother's right to life*."
+    },
+    {
+        "q": "According to Thomson (Handout 3.2), the 'Right to Life' does NOT include:",
+        "options": ["(a) The right not to be killed maliciously.", "(b) The right to be given the bare minimum one needs for continued life.", "(c) The right to a valuable future."],
+        "ans": "(b) The right to be given the bare minimum one needs for continued life.",
+        "exp": "This is Thomson's core point: Even if the Violinist has a right to life, it doesn't mean he has the right to the 'bare minimum' (use of your kidneys) needed to survive."
+    },
+    {
+        "q": "According to Thomson (Handout 3.3), in 'Typical Cases' (unlike Emergency Cases), the mother's life is not in danger. Thomson argues abortion is still permissible because:",
+        "options": ["(a) The fetus is not a person.", "(b) The mother would have to make a 'large sacrifice' to allow use of her body, and the fetus has no right against her to demand it.", "(c) The direct killing argument is murder."],
+        "ans": "(b) The mother would have to make a 'large sacrifice' to allow use of her body, and the fetus has no right against her to demand it.",
+        "exp": "Thomson's Argument for Permissibility (Handout 3.3) states if A has to make a 'large sacrifice' to save B, and B has no right to demand it, A is not morally required to do so."
+    },
+    {
+        "q": "What is the primary philosophical point of Thomson's Basic Violinist Case?",
+        "options": ["(a) To prove fetuses are not persons.", "(b) To prove that the Right to Life does not guarantee the right to use another person's body.", "(c) To prove that abortion is always permissible."],
+        "ans": "(b) To prove that the Right to Life does not guarantee the right to use another person's body.",
+        "exp": "The Violinist is Thomson's most famous analogy proving that the right to life does not entail a right to use someone's body without their continuous consent."
+    },
+    {
+        "q": "What does Marquis identify as the primary reason killing an adult human is wrong?",
+        "options": ["(a) It directly kills an innocent person.", "(b) It deprives the victim of a Future Like Ours (FLO).", "(c) It violates their bodily autonomy."],
+        "ans": "(b) It deprives the victim of a Future Like Ours (FLO).",
+        "exp": "Marquis explicitly argues that the wrongness of killing stems from depriving the victim of all the experiences and joys of a valuable future."
+    },
+    {
+        "q": "Thomson argues that a third party (a doctor) CAN intervene to save a mother's life in an emergency abortion. What concept from Handout 3.1 justifies the doctor intervening?",
+        "options": ["(a) The Exception to Moral Freedom", "(b) Moral Ownership", "(c) The Therapeutic Misconception"],
+        "ans": "(b) Moral Ownership",
+        "exp": "Thomson argues that the mother 'morally owns' her body, which gives her the right to authorize a third party (the doctor) to assist her."
+    },
+    {
+        "q": "According to Marquis, his 'Future Like Ours' argument is superior to other anti-abortion arguments because it avoids the 'usual equivocations' on what terms?",
+        "options": ["(a) 'Direct killing' and 'letting die'", "(b) 'Human life' and 'person'", "(c) 'Moral considerations' and 'moral norms'"],
+        "ans": "(b) 'Human life' and 'person'",
+        "exp": "Marquis notes on page 1 of his essay that FLO avoids getting bogged down in messy debates over the exact definition of a 'person' or 'human life'."
+    },
+    {
+        "q": "Handout 3.1 discusses three ways a counterexample can be used against the Direct Killing Argument (DKA). Which of the following is the 'Esmerelda' case used for?",
+        "options": ["(a) To attack the premise that fetuses are innocent.", "(b) To attack Premise 6.4 (that you must let yourself die rather than directly kill).", "(c) To prove that Ontological Moral Skepticism is true."],
+        "ans": "(b) To attack Premise 6.4 (that you must let yourself die rather than directly kill).",
+        "exp": "Esmerelda (and the Bus Case) are counterexamples proving that you are NOT morally required to sit back and let yourself die if an innocent threat is going to crush you."
+    },
+    {
+        "q": "In the Roommate Case (Handout 1.0), what is the distinction Professor McHose emphasizes?",
+        "options": ["(a) Active-rich vs. Placebo-poor", "(b) EV vs. SLEV", "(c) Moral Considerations vs. All-Things-Considered Moral Norms"],
+        "ans": "(c) Moral Considerations vs. All-Things-Considered Moral Norms",
+        "exp": "The roommate case separates the individual reasons (considerations) from the final verdict of impermissibility (norms)."
+    },
+    {
+        "q": "Which of the following is a key element of the Direct Killing Argument (DKA)?",
+        "options": ["(a) Letting someone die is worse than directly killing them.", "(b) Directly killing an innocent person is worse than letting someone die.", "(c) A fetus has no right to life."],
+        "ans": "(b) Directly killing an innocent person is worse than letting someone die.",
+        "exp": "The DKA relies on the idea that actively, directly killing the fetus is a worse moral action than passively letting the mother die."
+    },
+    {
+        "q": "If a woman wants an abortion simply because she does not want to be a parent right now, which category of cases does Thomson place this in (Handout 3.3)?",
+        "options": ["(a) Emergency Cases", "(b) Typical Cases", "(c) Rights Generator Cases"],
+        "ans": "(b) Typical Cases",
+        "exp": "Emergency cases are life-or-death. Thomson defines 'Typical Cases' as vastly more common cases where the reason is less weighty than preserving her own life."
+    },
+    {
+        "q": "According to Pogge's Exception to Moral Freedom, if a corporation provides a 'net benefit' to a desperate population, are they automatically morally justified?",
+        "options": ["(a) Yes, a net benefit is all that is required.", "(b) No, providing a net benefit does not give you the right to exploit their desperation.", "(c) Yes, because of the Therapeutic Misconception."],
+        "ans": "(b) No, providing a net benefit does not give you the right to exploit their desperation.",
+        "exp": "The Eccentric Filmmaker provides a net benefit (cash), but Pogge says his actions are still grotesque because he is exploiting their desperation."
     }
 ]
 
@@ -61,7 +162,9 @@ def init_state():
     defaults = {
         'stage': 0, 'sub_stage': 0, 'learned_vocab': [], 
         'redo_queue': [], 'drill_state': "unanswered",
-        'exam_score': 0, 'exam_q': 0, 'flashcards': list(vocab_defs.keys()),
+        'exam_score': 0, 'exam_q_index': 0, 
+        'active_exam_pool': [], 'q_answered_correctly': False,
+        'flashcards': list(vocab_defs.keys()),
         'fc_index': 0, 'fc_show_back': False, 'confirm_restart': False
     }
     for k, v in defaults.items():
@@ -92,12 +195,9 @@ def add_to_redo(prompt, valid_phrases, exact_answer):
     if not any(d["prompt"] == prompt for d in st.session_state.redo_queue):
         st.session_state.redo_queue.append(drill_obj)
 
-# --- REUSABLE DRILL UI ---
 def run_drill(prompt, valid_phrases, exact_answer, success_action=None):
     st.markdown(f"<div class='drill-box'><b>✏️ Drill to remember:</b><br>{prompt}</div>", unsafe_allow_html=True)
-    
     ans = st.text_input("Type your answer:", key=f"drill_{st.session_state.stage}_{st.session_state.sub_stage}")
-    
     col1, col2 = st.columns([1, 1])
     with col1:
         if st.button("Submit Answer"):
@@ -117,12 +217,10 @@ def run_drill(prompt, valid_phrases, exact_answer, success_action=None):
             if success_action: success_action()
             else: next_stage()
             st.rerun()
-            
     elif st.session_state.drill_state == "wrong":
-        st.error("❌ Not quite! The spelling or phrasing is off. Try again, or click 'Show Answer'. (Don't worry, if you struggle, we will just review it later!)")
-        
+        st.error("❌ Not quite! The spelling or phrasing is off. Try again, or click 'Show Answer'.")
     elif st.session_state.drill_state == "show_ans":
-        st.info(f"🐻 **Professor Bear says:** The exact answer is **{exact_answer}**. \n\nI have added this to your review queue so we can practice it again before the exam!")
+        st.info(f"🐻 **Professor Bear says:** The exact answer is **{exact_answer}**. I added this to your review queue!")
         if st.button("Acknowledge & Continue 🐾"):
             if success_action: success_action()
             else: next_stage()
@@ -148,282 +246,123 @@ for word in st.session_state.learned_vocab:
 # --- STAGE 0: Intro ---
 if st.session_state.stage == 0:
     st.title("🐻 Phil 4 Master Study App")
-    st.write("Welcome! We are going to roleplay through your exam material. You will have to make decisions in the shoes of the people involved.")
-    st.write("If you misspell a word or get stuck on a drill, just hit 'Show Answer'. I will automatically save it and ask you again before you are allowed to take the Final Exam. Let's begin!")
+    st.write("Welcome! We are going through your EXACT study guide bullet points (Pogge, Thomson Handouts 3.0-3.3, and Marquis).")
     if st.button("Start Journey"): next_stage(); st.rerun()
 
-# --- STAGE 1: Skepticism (Handouts 1.0 & 1.1) ---
+# --- STAGE 1: Pogge (Handout 2.2) ---
 elif st.session_state.stage == 1:
-    st.title("Chapter 1: The Evil Roommate & Moral Facts")
+    st.title("Chapter 1: Pogge (Handout 2.2)")
     
     if st.session_state.sub_stage == 0:
-        st.markdown("""
-        <div class='story-box'>
-        <b>The Scenario:</b><br>
-        Imagine you have a huge philosophy exam tomorrow. You step out of your dorm for a second. Your roommate maliciously flips the lock on your bathroom door. You go inside, and *click*. You are locked in for hours so they can ruin your grade, beat the curve, and get an A. 
-        <br><br>
-        <b>The Philosophy:</b><br>
-        Almost every human being on earth agrees that what your roommate did was "wrong." However, there is a philosophical view called <b>Ontological Moral Skepticism (OMS)</b> which claims that <i>there are absolutely no moral facts in the universe</i>. If OMS is true, then your belief that your roommate was wrong is actually a false belief! Professor McHose uses this highly relatable case to show that OMS is a very jarring and counterintuitive way to view the world.
-        </div>
-        """, unsafe_allow_html=True)
-        st.write("When deciding if the roommate was wrong, Professor McHose says we must separate two things. One is the 'little weights on the scale' (e.g., 'It hurt your grade' vs. 'It helped their grade'). What do we call these little weights/reasons?")
+        st.markdown("<div class='story-box'><b>Study Guide Topic:</b> Pogge Handout 2.2 p10-17.<br><br><b>Scenario:</b> D-Lab is testing Surfaxin in Bolivia using a placebo-poor trial. Pogge argues this is wrong using the 'Eccentric Filmmaker' case. The filmmaker gives starving people a 50/50 chance at $30,000 or a paint-bomb. Even though he provides a 'net benefit' (money) to the town, his conduct is grotesque.</div>", unsafe_allow_html=True)
+        st.write("What specific principle does the Eccentric Filmmaker prove regarding exploiting desperate people?")
         
-        if st.button("All-Things-Considered Moral Norms"): st.error("❌ Nope! That is the *final verdict*, not the individual weights/reasons. Try again!")
-        if st.button("Moral Considerations"): pass_mcq(["Ontological Moral Skepticism (OMS)", "Moral Considerations"]); st.rerun()
-
-    elif st.session_state.sub_stage == 1:
-        st.write("Excellent. So 'Moral Considerations' are the reasons for or against an action. But after we weigh all those reasons, we come to a final verdict (e.g., 'Locking you in the bathroom was 100% impermissible').")
-        run_drill(
-            "What is the hyphenated phrase that represents the final, conclusive verdict of whether an action is morally impermissible?",
-            ["all things considered moral norms", "all things considered", "allthingsconsidered"],
-            "All-Things-Considered Moral Norms",
-            success_action=lambda: [pass_mcq(["All-Things-Considered Moral Norms"]), next_stage()]
-        )
-
-# --- STAGE 2: Clinical Trials (Handout 2.0) ---
-elif st.session_state.stage == 2:
-    st.title("Chapter 2: The CEO of D-Lab")
-    
-    if st.session_state.sub_stage == 0:
-        st.markdown("""
-        <div class='story-box'>
-        <b>The Scenario:</b><br>
-        You are the CEO of a pharmaceutical company called "D-Lab." You have a new drug called Surfaxin that helps premature babies breathe. You need to run a "Randomized Control Trial" to see if it works. 
-        <br><br>
-        You have four options for your trial:<br>
-        1. <b>Active-Rich:</b> Run the trial in a rich country (US) and compare Surfaxin against the best *already existing* drug.<br>
-        2. <b>Active-Poor:</b> Run it in a poor country (Bolivia) against the best existing drug.<br>
-        3. <b>Placebo-Rich:</b> Run it in a rich country and compare Surfaxin against a <i>placebo</i> (fake sugar water).<br>
-        4. <b>Placebo-Poor:</b> Run it in a poor country against a placebo.<br><br>
-        <b>The Philosophy:</b><br>
-        Placebo trials are much cheaper and require fewer participants because the difference between a real drug and sugar water is obvious quickly. Also, rich countries are preferred by companies because their citizens can actually afford to buy the drug once it is approved. 
-        </div>
-        """, unsafe_allow_html=True)
-        st.write("Based on this, if you are a greedy CEO looking out *only* for your self-interest, how do you rank your trial preferences (from best to worst)?")
-        
-        if st.button("Active-Rich > Active-Poor > Placebo-Rich > Placebo-Poor"): st.error("❌ Nope, Active trials require massive sample sizes to prove your drug is *better* than an already great drug. Too expensive!")
-        if st.button("Placebo-Rich > Active-Rich > Placebo-Poor > Active-Poor"): pass_mcq([]); st.rerun()
-            
-    elif st.session_state.sub_stage == 1:
-        st.markdown("""
-        <div class='story-box'>
-        <b>The Fallout:</b><br>
-        You couldn't do a "Placebo-Rich" trial because the US FDA bans using placebos on babies when a known cure already exists! So, you settle for a "Placebo-Poor" trial in Bolivia because they have looser laws.<br><br>
-        When you arrive in Bolivia, the parents are weeping with joy. They are thanking you for "treating" their dying babies. What they don't realize is that you are a <i>researcher</i>, not a doctor. Half of these babies are getting fake sugar water just so you can collect data, and you have no intention of saving them all.
-        </div>
-        """, unsafe_allow_html=True)
-        st.write("What is the psychological term for when a participant confuses a researcher's goal (getting data) with a doctor's goal (saving patients)?")
-        
-        if st.button("Exception to Moral Freedom"): st.error("❌ Nope, that's Pogge's rule about exploitation. Try the other one!")
-        if st.button("Therapeutic Misconception"): pass_mcq(["Therapeutic Misconception"]); st.rerun()
-
-    elif st.session_state.sub_stage == 2:
-        run_drill(
-            "Type the exact two-word phrase for when a patient incorrectly believes a clinical trial is designed purely to heal them.",
-            ["therapeutic misconception", "theraputic misconception"],
-            "Therapeutic Misconception"
-        )
-
-# --- STAGE 3: Pogge (Handouts 2.1 & 2.2) ---
-elif st.session_state.stage == 3:
-    st.title("Chapter 3: The Eccentric Filmmaker")
-    
-    if st.session_state.sub_stage == 0:
-        st.markdown("""
-        <div class='story-box'>
-        <b>The Scenario:</b><br>
-        Philosopher Thomas Pogge hears about your D-Lab trial in Bolivia and decides to teach you a lesson. He tells you a story about an "Eccentric Filmmaker."<br><br>
-        A rich, twisted filmmaker goes to a desperately poor neighborhood. He has a truck full of unmarked boxes. Half the boxes contain $30,000. The other half contain a violent paint-bomb. He tells the poor residents: <i>"If you consent, I will flip a coin. Heads, you get a box with money. Tails, you get a paint-bomb to the face. I am filming this for my own amusement."</i><br><br>
-        Because the residents are starving and desperate, many agree to play. Overall, the filmmaker is actually providing a "net benefit" to the neighborhood (bringing in lots of money).
-        </div>
-        """, unsafe_allow_html=True)
-        st.write("Does Pogge believe that the Eccentric Filmmaker's actions are morally acceptable just because the poor people 'consented' and received a net benefit?")
-        
-        if st.button("Yes, because it's their choice and they got money."): st.error("❌ No! Pogge believes the filmmaker's behavior is grotesque and wrong.")
-        if st.button("No, you cannot exploit desperation for your own amusement/profit."): pass_mcq([]); st.rerun()
-
-    elif st.session_state.sub_stage == 1:
-        st.markdown("""
-        <div class='story-box'>
-        <b>The Philosophy:</b><br>
-        Pogge uses the Filmmaker story as an analogy for D-Lab's Surfaxin trial in Bolivia. Even though D-Lab is giving <i>some</i> babies medicine (a net benefit), they are taking advantage of the Bolivians' desperate poverty to run a cheap placebo trial that they couldn't run in the US.
-        </div>
-        """, unsafe_allow_html=True)
-        st.write("What is the name of Pogge's specific principle which states that you cannot exploit desperate people for your own ends?")
-        
-        if st.button("Moral Conditional"): st.error("❌ Incorrect. Think about the word 'Exception'.")
+        if st.button("Moral Conditional"): st.error("❌ Incorrect.")
         if st.button("Exception to Moral Freedom"): pass_mcq(["Exception to Moral Freedom"]); st.rerun()
 
-    elif st.session_state.sub_stage == 2:
-        run_drill(
-            "What is the exact name of Pogge's principle regarding exploitation? (Hint: Exception to Moral _______)",
-            ["exception to moral freedom", "moral freedom", "freedom"],
-            "Exception to Moral Freedom"
-        )
+    elif st.session_state.sub_stage == 1:
+        run_drill("What is the exact name of Pogge's principle? (Hint: Exception to Moral _______)", ["exception to moral freedom", "moral freedom"], "Exception to Moral Freedom")
 
-# --- STAGE 4: Thomson (Handouts 3.0, 3.1, 3.2) ---
+# --- STAGE 2: Thomson (Handout 3.0) ---
+elif st.session_state.stage == 2:
+    st.title("Chapter 2: Thomson (Handout 3.0)")
+    
+    if st.session_state.sub_stage == 0:
+        st.markdown("<div class='story-box'><b>Study Guide Topics:</b> Basic RtL, Basic Violinist, EV, DKA.<br><br><b>Scenario:</b> You wake up hooked to a famous violinist. The Society of Music Lovers says his 'Right to Life' means you MUST let him use your kidneys for 9 months. Thomson says NO. Therefore, the <b>Extreme View (EV)</b> (which says abortion is ALWAYS impermissible, even to save the mother) is false.</div>", unsafe_allow_html=True)
+        st.write("Does Thomson believe the Right to Life includes the right to use another person's body to survive?")
+        if st.button("Yes"): st.error("❌ No, Thomson argues this is a false assumption by pro-life advocates.")
+        if st.button("No"): pass_mcq(["Extreme View (EV)", "Right to Life (Thomson)"]); st.rerun()
+
+    elif st.session_state.sub_stage == 1:
+        run_drill("What is the 2-word phrase for the view that abortion is ALWAYS impermissible?", ["extreme view", "ev"], "Extreme View (EV)")
+
+# --- STAGE 3: Thomson (Handout 3.1) ---
+elif st.session_state.stage == 3:
+    st.title("Chapter 3: Thomson (Handout 3.1)")
+    
+    if st.session_state.sub_stage == 0:
+        st.markdown("<div class='story-box'><b>Study Guide Topics:</b> DKA Counterexamples, Bus Case, SLEV, Moral Ownership.<br><br><b>Scenario:</b> The Direct Killing Argument (DKA) says you must let yourself die rather than directly kill an innocent. Thomson attacks this with the <b>Bus Case (Chet & Abilene)</b>: If a passenger falls on you and will crush you to death, are you morally required to let them crush you? No, you can push them off! <br><br>Also, under the <b>Slightly Less Extreme View (SLEV)</b>, a mother can abort to save her life, but a doctor cannot help her. Thomson attacks this using <b>Moral Ownership</b>: The mother owns her body, so she can authorize a doctor to help her.</div>", unsafe_allow_html=True)
+        st.write("Under SLEV, is a doctor allowed to perform an emergency abortion?")
+        if st.button("Yes"): st.error("❌ No! SLEV says only the mother can perform it.")
+        if st.button("No"): pass_mcq(["Slightly Less Extreme View (SLEV)", "Direct Killing Argument (DKA)", "Moral Ownership"]); st.rerun()
+
+    elif st.session_state.sub_stage == 1:
+        run_drill("What concept explains why a mother can authorize a third-party doctor to help her? (Hint: Moral _________)", ["moral ownership", "ownership"], "Moral Ownership")
+
+# --- STAGE 4: Thomson (Handouts 3.2 & 3.3) ---
 elif st.session_state.stage == 4:
-    st.title("Chapter 4: The Kidnapped Filter (Thomson)")
+    st.title("Chapter 4: Thomson (Handouts 3.2 & 3.3)")
     
     if st.session_state.sub_stage == 0:
-        st.markdown("""
-        <div class='story-box'>
-        <b>The Scenario:</b><br>
-        We now transition to the ethics of Abortion. Philosopher Judith Jarvis Thomson asks you to imagine the following:<br><br>
-        You wake up in a hospital bed. You have been kidnapped by the "Society of Music Lovers." Next to you is a famously talented violinist who is dying of a kidney ailment. The Society has plugged his circulatory system into yours. If you unplug him right now, he dies. He needs to use your kidneys for 9 months to survive.<br><br>
-        <b>The Philosophy:</b><br>
-        Pro-life advocates argue that a fetus has a "Right to Life," which overrides the mother's right to her body. The violinist also clearly has a "Right to Life." But does his right to life mean you are <i>morally obligated</i> to lay in that bed for 9 months?
-        </div>
-        """, unsafe_allow_html=True)
-        st.write("According to Thomson, does the Violinist's 'Right to Life' give him the right to use your kidneys?")
-        
-        if st.button("Yes, Right to Life guarantees whatever you need to survive."): st.error("❌ Thomson argues this is a false definition of the Right to Life.")
-        if st.button("No, Right to Life does NOT include the right to use another's body."): pass_mcq(["Right to Life (Thomson's definition)"]); st.rerun()
+        st.markdown("<div class='story-box'><b>Study Guide Topics:</b> Mod-pro, 2nd Version RtL, Typical vs Emergency, Rights Generators, Identical Cars.<br><br><b>Scenario:</b> In <b>Typical Cases</b> (where the mother's life is NOT in danger), Thomson argues that if the mother must make a 'large sacrifice', she is not morally required to do so.<br><br>Some argue a fetus gains a right to the body via intercourse (Rights Generators 1-4). Thomson disproves this with the <b>VIP Honda Civic (Identical Cars)</b> case: Just because an innocent guy mistakenly gets into your running car doesn't mean he gets a moral right to keep it!</div>", unsafe_allow_html=True)
+        st.write("What view states that abortion is impermissible EXCEPT to save the mother's life (and a doctor CAN perform it)?")
+        if st.button("Moderate Pro-Life View (Mod-pro)"): pass_mcq(["Moderate Pro-life View (Mod-pro)", "Typical vs Emergency Cases", "Rights Generators 1-4"]); st.rerun()
+        if st.button("Extreme View"): st.error("❌ EV allows NO exceptions.")
 
     elif st.session_state.sub_stage == 1:
-        st.markdown("""
-        <div class='story-box'>
-        <b>The Philosophy:</b><br>
-        Because the violinist doesn't have a right to your body, Thomson proves that having a "Right to Life" doesn't automatically make it impermissible to unplug him (or, by analogy, to have an abortion).<br><br>
-        Thomson strictly defines the views of her opponents:<br>
-        1. <b>The Extreme View (EV):</b> Abortion is ALWAYS impermissible, even to save the mother's life.<br>
-        2. <b>The Slightly Less Extreme View (SLEV):</b> Abortion is impermissible EXCEPT to save the mother's life, BUT only the mother herself can perform it. A doctor (a third party) is not allowed to intervene.
-        </div>
-        """, unsafe_allow_html=True)
-        st.write("Under the 'Slightly Less Extreme View (SLEV)', can a doctor perform a life-saving abortion on a mother?")
-        
-        if st.button("Yes, if it saves her life."): st.error("❌ No, SLEV strictly forbids third-party intervention.")
-        if st.button("No, only the mother can perform it herself."): pass_mcq(["Extreme View (EV)", "Slightly Less Extreme View (SLEV)"]); st.rerun()
+        run_drill("The Honda Civic case is used to disprove Rights Generators 1-4. What do we call a scenario that disproves a rule?", ["counterexample", "counter example"], "Counterexample")
 
-    elif st.session_state.sub_stage == 2:
-        run_drill(
-            "What is the 2-word phrase for the view that abortion is ALWAYS impermissible, with absolutely no exceptions?",
-            ["extreme view", "ev", "the extreme view"],
-            "Extreme View (EV)"
-        )
-
-# --- STAGE 5: Thomson (Handout 3.3) ---
+# --- STAGE 5: Smart Review Gauntlet ---
 elif st.session_state.stage == 5:
-    st.title("Chapter 5: The VIP Honda Civic")
-    
-    if st.session_state.sub_stage == 0:
-        st.markdown("""
-        <div class='story-box'>
-        <b>The Scenario:</b><br>
-        Some people argue that if a mother engages in intercourse (even with contraception), she is partially responsible for the fetus existing, and thus she "generates a right" for the fetus to use her body. Thomson attacks this with the Honda Civic case:<br><br>
-        You pay for VIP parking at a concert. A gang of sophisticated thieves breaks in and steals cars. They open your Honda Civic and leave it running, but get spooked by cops and run away. An innocent concert-goer walks out, sees your running Honda Civic, thinks it is his identical car, gets in, and drives away. <br><br>
-        <b>The Philosophy:</b><br>
-        The innocent driver is like the fetus. He didn't do anything malicious. He just arrived there by accident due to a chain of events. But does he now have a <i>moral right</i> to keep your car? No! 
-        </div>
-        """, unsafe_allow_html=True)
-        st.write("Professor McHose uses this specific story to completely disprove the philosophical rule that 'innocent arrival guarantees a right to use property'. In logic, what do we call a scenario that disproves a rule?")
-        
-        if st.button("A Direct Killing Argument"): st.error("❌ Nope, that is a different concept regarding murder.")
-        if st.button("A Counterexample"): pass_mcq(["Counterexample"]); st.rerun()
-
-    elif st.session_state.sub_stage == 1:
-        run_drill(
-            "Type the exact word for a scenario that disproves a philosophical rule (e.g., the Honda Civic case disproves Rights Generators 1, 2, and 3).",
-            ["counterexample", "counter example"],
-            "Counterexample"
-        )
-
-# --- STAGE 6: Marquis (Handout 4) ---
-elif st.session_state.stage == 6:
-    st.title("Chapter 6: A Conversation with Marquis")
-    
-    if st.session_state.sub_stage == 0:
-        st.markdown("""
-        <div class='story-box'>
-        <b>The Scenario:</b><br>
-        You sit down with philosopher Don Marquis. He says, "The abortion debate is stuck. People argue forever about whether a fetus is a 'person' or a 'cluster of cells', or they argue about religion. I am going to ignore all of that."<br><br>
-        Instead, Marquis asks a simple question: <i>"Why is it wrong to kill you, an adult human being, right now?"</i><br><br>
-        <b>The Philosophy:</b><br>
-        Marquis answers his own question: Killing you is wrong because it deprives you of all the experiences, joys, and projects of your future. Since a fetus also possesses this exact same property (a valuable future waiting for it), killing a fetus is in the exact same moral category as killing an adult human being.
-        </div>
-        """, unsafe_allow_html=True)
-        st.write("According to Marquis, what is the primary reason that killing an adult is wrong?")
-        
-        if st.button("Because it causes pain."): st.error("❌ Too broad. What if the adult was killed instantly in their sleep with no pain?")
-        if st.button("Because it deprives the victim of a valuable future."): pass_mcq(["A Future Like Ours (FLO)"]); st.rerun()
-
-    elif st.session_state.sub_stage == 1:
-        run_drill(
-            "What is the exact 4-word phrase (or 3-letter acronym) Marquis uses to describe what a victim loses when they are killed?",
-            ["a future like ours", "future like ours", "flo"],
-            "A Future Like Ours (FLO)"
-        )
-
-# --- STAGE 7: Smart Review Gauntlet ---
-elif st.session_state.stage == 7:
     st.title("🧠 The Redo Gauntlet")
-    
     if len(st.session_state.redo_queue) == 0:
-        st.success("🎉 You have cleared the Gauntlet! You proved you know all the vocabulary.")
-        if st.button("Take Final Exam 📝"): 
-            next_stage()
-            st.rerun()
+        st.success("🎉 You cleared the Gauntlet! Time for the Final Exam.")
+        if st.button("Take Final Exam 📝"): next_stage(); st.rerun()
     else:
-        st.warning(f"You have {len(st.session_state.redo_queue)} question(s) you need to master before taking the exam.")
-        
+        st.warning(f"You have {len(st.session_state.redo_queue)} question(s) to master before the exam.")
         current_drill = st.session_state.redo_queue[0]
         st.markdown(f"<div class='drill-box'><b>✏️ Re-Test:</b><br>{current_drill['prompt']}</div>", unsafe_allow_html=True)
-        
         redo_ans = st.text_input("Type the exact answer:", key="redo_input")
-        
         if st.button("Submit Redo"):
             if check_spelling(redo_ans, current_drill['valid']):
-                st.success("✅ Perfect! Removing this from your queue.")
+                st.success("✅ Perfect!")
                 st.session_state.redo_queue.pop(0)
                 st.button("Next Question", on_click=lambda: st.rerun())
             else:
-                st.error("❌ Still not quite right. Read the sidebar definitions if you are stuck!")
-                st.info(f"Reminder: The exact answer is **{current_drill['exact']}**")
+                st.error(f"❌ Still not quite right. Reminder: The answer is **{current_drill['exact']}**")
 
-# --- STAGE 8: FINAL EXAM ---
-elif st.session_state.stage == 8:
-    st.title("📝 Practice Final Exam #2.0")
-    st.write("Format matches Professor McHose's exam exactly.")
+# --- STAGE 6: FINAL EXAM (Strict & Randomized) ---
+elif st.session_state.stage == 6:
+    st.title("📝 The Final Exam (20 Questions)")
+    st.write("You must get each question correct to proceed. Explanations provided on failure.")
     
-    q_data = exam_questions[st.session_state.exam_q]
-    st.markdown(f"**Question {st.session_state.exam_q + 1} of {len(exam_questions)}**")
-    st.write(q_data["q"])
-    
-    for opt in q_data["options"]:
-        if st.button(opt):
-            if opt == q_data["ans"]:
-                st.session_state.exam_score += 1
-            st.session_state.exam_q += 1
-            st.rerun()
-            
-    if st.session_state.exam_q >= len(exam_questions):
-        st.session_state.stage = 9
-        st.rerun()
+    # Initialize the random pool of 20 questions exactly once
+    if not st.session_state.active_exam_pool:
+        st.session_state.active_exam_pool = random.sample(all_exam_questions, 20)
+        st.session_state.exam_q_index = 0
+        st.session_state.q_answered_correctly = False
 
-# --- STAGE 9: EXAM RESULTS ---
-elif st.session_state.stage == 9:
-    st.title("📊 Exam Results")
-    score_pct = (st.session_state.exam_score / len(exam_questions)) * 100
-    st.write(f"### You scored: {st.session_state.exam_score} / {len(exam_questions)} ({score_pct}%)")
-    
-    if score_pct >= 75:
-        st.success("🎉 You passed the Final Exam! You have unlocked Flashcard Mode.")
-        if st.button("Start Flashcards 🃏"): next_stage(); st.rerun()
+    # Check if finished
+    if st.session_state.exam_q_index >= 20:
+        st.success("🎉 YOU PASSED THE FINAL EXAM!")
+        if st.button("Go to Flashcards"): next_stage(); st.rerun()
     else:
-        st.error("You need at least 75% to unlock Flashcards. Keep studying!")
-        if st.button("Retake Exam"):
-            st.session_state.exam_score = 0
-            st.session_state.exam_q = 0
-            st.session_state.stage = 8
-            st.rerun()
+        q_data = st.session_state.active_exam_pool[st.session_state.exam_q_index]
+        st.markdown(f"**Question {st.session_state.exam_q_index + 1} of 20**")
+        st.write(q_data["q"])
+        
+        if not st.session_state.q_answered_correctly:
+            for opt in q_data["options"]:
+                if st.button(opt):
+                    if opt == q_data["ans"]:
+                        st.success("✅ Correct!")
+                        st.session_state.q_answered_correctly = True
+                        st.rerun()
+                    else:
+                        st.error(f"❌ Incorrect. \n\n**Why?** {q_data['exp']}")
+        else:
+            st.success(f"**Explanation:** {q_data['exp']}")
+            if st.button("Next Question ➡️"):
+                st.session_state.exam_q_index += 1
+                st.session_state.q_answered_correctly = False
+                st.rerun()
 
-# --- STAGE 10: FLASHCARDS ---
-elif st.session_state.stage == 10:
+# --- STAGE 7: FLASHCARDS ---
+elif st.session_state.stage == 7:
     st.title("🃏 Mastery Flashcards")
-    
     if len(st.session_state.flashcards) == 0:
         st.balloons()
-        st.success("You have mastered every single card! You are 100% ready for the test tomorrow.")
+        st.success("You mastered every card! You are ready for Exam 2.")
         if st.button("Reset Deck"):
             st.session_state.flashcards = list(vocab_defs.keys())
             st.session_state.fc_index = 0
@@ -432,7 +371,6 @@ elif st.session_state.stage == 10:
     else:
         if st.session_state.fc_index >= len(st.session_state.flashcards):
             st.session_state.fc_index = 0
-            
         current_card = st.session_state.flashcards[st.session_state.fc_index]
         st.write(f"Cards remaining: {len(st.session_state.flashcards)}")
         
@@ -443,7 +381,6 @@ elif st.session_state.stage == 10:
                 st.rerun()
         else:
             st.markdown(f"<div class='flashcard' style='background-color:#e8f5e9;'><b>{current_card}</b><br><br><span style='font-size:18px; font-weight:normal;'>{vocab_defs[current_card]}</span></div>", unsafe_allow_html=True)
-            
             col1, col2 = st.columns(2)
             with col1:
                 if st.button("❌ I got it wrong"):
