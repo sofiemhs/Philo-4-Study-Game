@@ -3,7 +3,7 @@ import re
 import random
 
 # --- PAGE CONFIGURATION & THEME ---
-st.set_page_config(page_title="Phil 4 Master Study App", page_icon="🐻", layout="wide")
+st.set_page_config(page_title="Phil 4 Master Study App", page_icon="📚", layout="wide")
 
 st.markdown("""
     <style>
@@ -11,7 +11,6 @@ st.markdown("""
     h1, h2, h3 { color: #5d4037; font-family: 'Courier New', Courier, monospace; }
     .cover-box { background-color: #fff8e1; padding: 50px; border-radius: 20px; border: 4px solid #ffb300; margin-bottom: 30px; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
     .story-box { background-color: #e7cda2; padding: 20px; border-radius: 15px; border: 2px solid #8d6e63; margin-bottom: 20px; font-size: 18px; line-height: 1.6; }
-    .bear-box { background-color: #fff8e1; padding: 20px; border-radius: 15px; border: 3px solid #ffa000; margin-bottom: 20px; font-size: 18px; line-height: 1.6; }
     .drill-box { background-color: #bbdefb; padding: 15px; border-radius: 10px; border-left: 5px solid #1976d2; margin-bottom: 15px; }
     .exam-box { background-color: #e1bee7; padding: 20px; border-radius: 10px; border: 3px solid #8e24aa; margin-bottom: 15px; }
     .flashcard { background-color: #ffffff; padding: 40px; border-radius: 15px; border: 3px dashed #8d6e63; text-align: center; font-size: 24px; font-weight: bold; margin-bottom: 20px; }
@@ -41,7 +40,7 @@ curriculum = {
         "sections": [
             {
                 "subtitle": "Handout 2.2 p10-17",
-                "text": "In Handout 2.2, Pogge introduces the **Exception to Moral Freedom**: You cannot exploit desperate people for your own ends, even if you provide a 'net benefit'. He illustrates this with the 'Eccentric Filmmaker' case, where a rich person gives starving people a 50/50 chance at cash or a paint bomb for his own amusement. Though the money provides a net benefit, the exploitation remains grotesque.\n\nWhen evaluating clinical trials, we must distinguish between a company's self-interest and actual moral goodness. A greedy company like D-Lab ranks trial types based on cost and market logic: **Placebo-rich > Active-rich > Placebo-poor > Active-poor**. They prefer placebos because they are cheap, and rich countries because citizens can afford the drug later. However, true moral goodness prioritizes real medicine over placebos, ranking them: **Active-rich > Active-poor > Placebo-rich > Placebo-poor**.\n\nBecause the FDA bans placebo trials in the US when existing cures exist, D-Lab cannot run a Placebo-rich trial. Instead, they run a Placebo-poor trial in Bolivia. Because they do this simply because it is cheaper and foreign laws are looser, they violate the Exception to Moral Freedom by exploiting the desperation of the Bolivian parents.",
+                "text": "In Handout 2.2, Thomas Pogge examines the ethics of pharmaceutical testing in developing nations. He introduces the **Exception to Moral Freedom**: You cannot exploit desperate people for your own ends, even if you provide a 'net benefit'. He illustrates this with the 'Eccentric Filmmaker' case, where a wealthy individual gives starving people a 50/50 chance at $30,000 or a paint bomb for his own amusement. Though the money provides an overall net benefit to the community, taking advantage of their extreme poverty remains morally grotesque.\n\nWhen evaluating clinical trials, we must distinguish between a company's self-interest and actual moral goodness. A greedy company like D-Lab ranks trial types based on cost and market logic: **Placebo-rich > Active-rich > Placebo-poor > Active-poor**. They prefer placebos because they are much cheaper and faster to run, and they prefer rich countries because citizens can actually afford the drug once it is approved. However, true moral goodness prioritizes real medicine over fake sugar-water, ranking them: **Active-rich > Active-poor > Placebo-rich > Placebo-poor**.\n\nBecause the US FDA bans placebo trials when existing cures are already available (like for Respiratory Distress Syndrome in premature babies), D-Lab cannot legally run a Placebo-rich trial. Instead, they choose to run a Placebo-poor trial in Bolivia. Because they do this simply because it is cheaper and the foreign laws are looser, Pogge argues they violate the Exception to Moral Freedom by exploiting the desperation of the Bolivian parents. These parents also suffer from the **Therapeutic Misconception**, confusing the researcher's primary goal (gathering data) with a doctor's primary goal (preserving patient health).",
                 "drill_prompt": None 
             }
         ],
@@ -58,8 +57,8 @@ curriculum = {
         "sections": [
             {
                 "subtitle": "RtL, Violinist, EV, and DKA",
-                "text": "The Basic Right to Life Argument assumes the fetus is a person with a right to life, concluding abortion is impermissible. Thomson attacks this with the Basic Violinist Case to show a right to life does not guarantee use of another person's body.\n\nThomson strictly categorizes pro-life views. The **Extreme View (EV)** takes an absolute stance: abortion is ALWAYS impermissible. It allows absolutely no exceptions, not even to save the mother's life.\n\nThe Direct Killing Argument (DKA) supports EV by arguing that directly killing an innocent is morally worse than passively letting someone die. Thomson defines 'direct killing' as killing as an end in itself, or as a means to some end.",
-                "drill_prompt": "What 2-word phrase describes the view that abortion is ALWAYS impermissible?", "drill_ans": ["extreme view", "ev"], "drill_exact": "Extreme View (EV)"
+                "text": "The Basic Right to Life Argument begins by assuming the fetus is a person with a right to life, and concludes abortion is impermissible. Thomson famously grants this assumption (that the fetus is a person) for the sake of argument. However, she attacks the logic using the **Basic Violinist Case**. Imagine you are kidnapped and your kidneys are hooked up to a famous violinist to filter his blood. The violinist is a person with a right to life, but that does NOT mean he has a right to use your kidneys. Thus, the primary purpose of the Violinist case is to show a right to life does not guarantee use of another person's body.\n\nThomson then strictly categorizes pro-life views. The **Extreme View (EV)** takes an absolute stance: abortion is ALWAYS impermissible. It allows absolutely no exceptions, not even to save the mother's life.\n\nThe **Direct Killing Argument (DKA)** is often used to support EV by arguing that directly killing an innocent person is morally worse than passively letting someone die (the mother). Thomson defines 'direct killing' strictly as killing as an end in itself, or as a means to some end.",
+                "drill_prompt": "What is the ONE WORD name of the view that abortion is ALWAYS impermissible? (Hint: _______ View)", "drill_ans": ["extreme"], "drill_exact": "Extreme"
             }
         ],
         "exam": [
@@ -75,8 +74,8 @@ curriculum = {
         "sections": [
             {
                 "subtitle": "Counterexamples, Bus Case, SLEV",
-                "text": "Thomson uses the Chet & Abilene (Bus) Case to attack Premise 6.4 of the DKA. Chet CAN push an innocent crushing passenger off him. Esmerelda shows you don't have a duty to let yourself die.\n\nNext, Thomson examines the **Slightly Less Extreme View (SLEV)**. SLEV claims abortion is impermissible EXCEPT to save the mother's life, BUT with a strict condition: only the mother herself can perform it. A doctor or third-party is strictly forbidden from intervening.\n\nThomson attacks SLEV using 'Moral Ownership'. Because the mother morally owns her body, she has the right to authorize a doctor to help her save her own life.",
-                "drill_prompt": "Under SLEV, can a doctor perform a life-saving abortion?", "drill_ans": ["no"], "drill_exact": "No"
+                "text": "Thomson provides counterexamples to attack Premise 6.4 of the DKA (which claims you must always prefer letting yourself die rather than directly killing an innocent). She uses the **Chet & Abilene (Bus) Case**: If Abilene is thrown in a bus crash and is going to crush Chet to death, Chet is morally permitted to push her off to save his life. Abilene is considered perfectly *innocent* because she didn't intend to fall, but Chet can still directly kill her to survive. Similarly, the **Esmerelda** case shows that a person does not have a strict moral duty to simply let themselves die.\n\nNext, Thomson examines the **Slightly Less Extreme View (SLEV)**. SLEV claims abortion is impermissible EXCEPT to save the mother's life, BUT with a strict condition: only the mother herself can perform it. A doctor or third-party is strictly forbidden from intervening.\n\nThomson attacks SLEV using **Moral Ownership**. Because the mother morally owns her body as her property, she has the right to authorize a third party (the doctor) to help her defend it.",
+                "drill_prompt": "Under SLEV, can a doctor perform a life-saving abortion? (Yes/No)", "drill_ans": ["no"], "drill_exact": "No"
             }
         ],
         "exam": [
@@ -92,8 +91,8 @@ curriculum = {
         "sections": [
             {
                 "subtitle": "Mod-pro, 2nd RtL, and Thomson's Rights",
-                "text": "The **Moderate Pro-life View (Mod-pro)** claims abortion is impermissible EXCEPT to save the mother's life. However, unlike SLEV, Mod-pro explicitly allows a doctor to perform the procedure.\n\nThis aligns with the 2nd version of the RtL Argument. Premise 4 states: A fetus' right to life trumps all considerations with the possible exception of the mother's right to life.\n\nThomson attacks the core of these arguments by analyzing moral rights. Thomson defines the **Right to Life** simply as the right not to be killed unjustly. Crucially, it does NOT include the right to be given the bare minimum one needs for continued life. Therefore, even if a fetus has a Right to Life, it does not guarantee them the right to use the mother's body.",
-                "drill_prompt": "What view allows a doctor to perform a life-saving abortion? (Mod-___)", "drill_ans": ["mod pro", "mod-pro"], "drill_exact": "Mod-pro"
+                "text": "The **Moderate Pro-life View (Mod-pro)** claims abortion is impermissible EXCEPT to save the mother's life. Unlike SLEV, Mod-pro explicitly allows a doctor to perform the procedure. \n\nThis aligns with the 2nd version of the RtL Argument. Premise 4 of this argument states: A fetus' right to life trumps all considerations *with the possible exception of the mother's right to life*.\n\nThomson attacks the core of these arguments by analyzing moral rights. Thomson defines the **Right to Life** simply as the right not to be killed unjustly. Crucially, it does NOT include the right to be given the bare minimum one needs for continued life. Therefore, even if a fetus has a Right to Life, that right alone does not guarantee them the right to use the mother's body for nine months.",
+                "drill_prompt": "What is the ONE WORD name of the view that allows a doctor to perform a life-saving abortion? (Hint: _______ Pro-life View)", "drill_ans": ["moderate"], "drill_exact": "Moderate"
             }
         ],
         "exam": [
@@ -109,8 +108,8 @@ curriculum = {
         "sections": [
             {
                 "subtitle": "Typical Cases & Rights Generators",
-                "text": "**Typical Cases** are those where the mother wants an abortion for less weighty reasons than preserving her own life (i.e., it is not a medical emergency). Thomson argues abortion is still permissible here because the mother would have to make a 'large sacrifice' to carry the fetus, and the fetus has no right to demand that sacrifice.\n\nPro-lifers often counter this by using **Rights Generators 1-4**, arguing that because the mother engaged in intercourse, she voluntarily generated a right for the fetus to use her body. Thomson disproves ALL of these rights generators with the **Identical Cars (Honda Civic)** case. If thieves leave your VIP Honda Civic running, and an innocent person accidentally drives it away, they do not gain a moral right to keep your car. This proves that an innocent arrival doesn't grant property or bodily rights.",
-                "drill_prompt": "What defines a 'Typical Case'?", "drill_ans": ["less weighty", "not life or death", "less weighty reasons", "not emergency"], "drill_exact": "Less weighty reasons than life or death"
+                "text": "**Typical Cases** are those where the mother wants an abortion for less weighty reasons than preserving her own life (i.e., it is not a medical emergency, she simply does not wish to be a parent). Thomson argues abortion is still permissible here because the mother would have to make a 'large sacrifice' to carry the fetus, and the fetus has no inherent right to demand that sacrifice.\n\nPro-lifers often counter this by using **Rights Generators 1-4**, arguing that because the mother engaged in intercourse (sometimes recklessly), she voluntarily generated a right for the fetus to use her body. Thomson disproves ALL of these rights generators with the **Identical Cars (VIP Honda Civic)** case. If you pay for VIP parking, but thieves break in and leave your car running, and an innocent person accidentally drives it away thinking it's theirs, they do not gain a moral right to keep your car. This proves that an innocent arrival—even one stemming from your own actions or third-party interference—doesn't automatically grant property or bodily rights.",
+                "drill_prompt": "What type of case involves a less weighty reason than saving the mother's life? (One word)", "drill_ans": ["typical"], "drill_exact": "Typical"
             }
         ],
         "exam": [
@@ -126,8 +125,8 @@ curriculum = {
         "sections": [
             {
                 "subtitle": "Validity, Soundness, and Conditionals",
-                "text": "To test for **Validity**: suppose all premises are true. If it's possible for the conclusion to be false, it is INVALID. **Soundness** means it is VALID and all premises are ACTUALLY true. \nConditional = 'If X, then Y'. Antecedent = the 'If' part. Consequent = the 'Then' part.",
-                "drill_prompt": "How do you test for Validity?", "drill_ans": ["suppose premises are true", "suppose premises true"], "drill_exact": "Suppose premises are true and see if conclusion can be false."
+                "text": "Professor McHose tests heavily on logical structure.\n\nTo test an argument for **Validity**: You must suppose that all the premises are true. If it is mathematically/logically possible for the conclusion to be false while the premises are true, the argument is INVALID. Validity only cares about the structure of the argument, not the real world.\n\n**Soundness** is a higher bar. An argument is Sound ONLY if it is Valid AND all of its premises are actually true in reality. Therefore, if an argument is perfectly valid, but one of the premises is factually false in the real world, the argument is NOT sound.\n\nWe also use **Conditionals**, which are 'If/Then' statements. The **Antecedent** is the 'If' part of the sentence (the condition). The **Consequent** is the 'Then' part (the result).",
+                "drill_prompt": "If an argument is valid AND all its premises are actually true, the argument is ______.", "drill_ans": ["sound"], "drill_exact": "Sound"
             }
         ],
         "exam": [
@@ -143,8 +142,8 @@ curriculum = {
         "sections": [
             {
                 "subtitle": "The Argument",
-                "text": "1. Fetus is a person. 2. Every person has a right to life. 3. Fetus has a right to life. 4. A person's right to life trumps bodily rights and makes killing impermissible. 5. Abortion kills fetus. C: Abortion is impermissible.\n\nPremise 4 is the crucial step Thomson attacks.",
-                "drill_prompt": "Which premise claims the right to life trumps bodily rights?", "drill_ans": ["4", "premise 4"], "drill_exact": "Premise 4"
+                "text": "This is the classic argument:\n1. By the Nth week of pregnancy, the fetus is a person. \n2. Every person has a right to life. \n3. So, by the Nth week, the fetus has a right to life. \n4. A person's right to life (a) trumps any rights another person might have regarding what happens in and/or to their body and (b) makes it impermissible to kill the person.\n5. Having an abortion would kill the fetus. \nC: It is morally impermissible to have an abortion in or after the Nth week of pregnancy.\n\nPremise 4 is the crucial step Thomson attacks.",
+                "drill_prompt": "Which premise number claims the right to life trumps bodily rights? (Type the number)", "drill_ans": ["4", "four"], "drill_exact": "4"
             }
         ],
         "exam": [
@@ -160,8 +159,8 @@ curriculum = {
         "sections": [
             {
                 "subtitle": "The Argument",
-                "text": "When applied to the Violinist, the logic dictates: C: It is impermissible to unhook yourself.\nBecause the conclusion is obviously false (you CAN unhook), Thomson proves Premise 4 is false.",
-                "drill_prompt": "If the conclusion is false, the argument cannot be _______.", "drill_ans": ["sound"], "drill_exact": "Sound"
+                "text": "When applied to the Violinist, the logic dictates: \n1. Violinist is a person.\n2. Persons have a Right to Life (RtL).\n3. Violinist has RtL.\n4. RtL trumps bodily rights.\n5. Unhooking kills violinist.\nC: It is impermissible to unhook yourself.\n\nThomson points out that the conclusion is absurd/false—you are kidnapped and hooked up to tubes, you absolutely CAN unhook yourself! Because the logic is valid but the conclusion is false, it proves that Premise 4 (that RtL trumps bodily rights) must be false.",
+                "drill_prompt": "Because the conclusion of the Violinist case is false, we know the argument is not _______.", "drill_ans": ["sound"], "drill_exact": "Sound"
             }
         ],
         "exam": [
@@ -177,7 +176,7 @@ curriculum = {
         "sections": [
             {
                 "subtitle": "The Argument",
-                "text": "Premise 2: Abortion is direct killing. Premise 5: Not aborting is letting mother die. Premise 6.4: If options are direct killing vs letting die, you must prefer letting die. C: Impermissible to abort.",
+                "text": "The DKA isolates passive versus active actions.\nPremise 2: Abortion is direct killing. \nPremise 5: Not aborting is merely letting the mother die. \nPremise 6.4: If your only options are directly killing an innocent or letting a person die, you MUST prefer letting the person die. \nC: Impermissible to abort.\n\nThomson will target 6.4 and an alternative version of it, 6.2 (which claims direct killing is murder).",
                 "drill_prompt": "What is the 3-letter abbreviation for the Direct Killing Argument?", "drill_ans": ["dka"], "drill_exact": "DKA"
             }
         ],
@@ -194,8 +193,8 @@ curriculum = {
         "sections": [
             {
                 "subtitle": "The Argument",
-                "text": "Applying DKA to the Violinist uses Premise 6.2: Direct killing an innocent is murder, which is absolutely impermissible. C: Impermissible to unhook, even to save your life.\nThomson shows this is absurd, meaning unhooking is NOT murder.",
-                "drill_prompt": "Does Thomson believe you must stay hooked up to save your life?", "drill_ans": ["no", "false"], "drill_exact": "No"
+                "text": "Applying DKA to the Violinist uses Premise 6.2: Direct killing an innocent is murder, which is always and absolutely impermissible. \nC: Impermissible to unhook, even to save your life.\n\nCalling the act of unhooking 'murder' makes the argument valid, but clearly unsound. Thomson shows this is absurd, proving that unhooking yourself to save your own life is NOT murder.",
+                "drill_prompt": "Does Thomson believe you must stay hooked up to save your life? (Yes/No)", "drill_ans": ["no"], "drill_exact": "No"
             }
         ],
         "exam": [
@@ -211,8 +210,8 @@ curriculum = {
         "sections": [
             {
                 "subtitle": "The Argument",
-                "text": "The DKA says you cannot push the crushing passenger off. Thomson shows this is absurd; you CAN push an innocent threat off to save your own life.",
-                "drill_prompt": "Who is crushing Chet in the Bus Case?", "drill_ans": ["abilene"], "drill_exact": "Abilene"
+                "text": "The DKA says Chet cannot push the crushing passenger (Abilene) off of him, because pushing her is direct killing, and letting her crush him is just letting himself die.\n\nThomson shows this is completely false. Chet CAN push an innocent threat off to save his own life. The DKA's reliance on 'letting die' over 'direct killing' falls apart in self-defense scenarios.",
+                "drill_prompt": "Who is crushing Chet in the Bus Case? (One word name)", "drill_ans": ["abilene"], "drill_exact": "Abilene"
             }
         ],
         "exam": [
@@ -228,8 +227,8 @@ curriculum = {
         "sections": [
             {
                 "subtitle": "The Argument",
-                "text": "Premise 4: A fetus' right to life trumps all considerations, with the possible exception of the mother's right to life. C: If a woman does not need an abortion to save her life, it is impermissible.",
-                "drill_prompt": "This argument perfectly aligns with which Pro-Life view? (Mod-___)", "drill_ans": ["mod pro", "mod-pro"], "drill_exact": "Mod-pro"
+                "text": "Premise 4: A fetus' right to life trumps all considerations, with the possible exception of the mother's right to life. \nC: If a woman does not need an abortion to save her life (a Typical Case), it is impermissible.\n\nThis argument aligns with the Mod-pro view. However, Thomson rejects it because even in non-emergencies, forcing someone to act as an incubator might be an unjustifiably 'large sacrifice' that the fetus has no right to demand.",
+                "drill_prompt": "In the 2nd RtL Argument, Premise 4 makes a possible exception for the mother's _____. (One word)", "drill_ans": ["life"], "drill_exact": "Life"
             }
         ],
         "exam": [
@@ -245,7 +244,7 @@ curriculum = {
         "sections": [
             {
                 "subtitle": "Marquis and FLO",
-                "text": "Marquis intentionally avoids getting bogged down in religious dogma or the 'personhood' debate. Instead, he focuses entirely on the loss of life's experiences. He argues that killing an adult is wrong simply because it deprives them of a valuable future. He calls this concept **A Future Like Ours (FLO)**. Because a fetus also possesses a future like ours waiting for it, killing a fetus is in the exact same moral category as killing an adult human being.",
+                "text": "Don Marquis intentionally avoids getting bogged down in religious dogma, the 'personhood' debate, or speciesism. Instead, he focuses entirely on the loss of life's experiences. He asks: Why is killing an adult human being wrong? Because it deprives them of a valuable future—all their projects, enjoyments, and experiences. He calls this concept **A Future Like Ours (FLO)**.\n\nBecause a fetus also possesses a future like ours waiting for it, killing a fetus deprives it of that exact same value. Therefore, abortion is in the exact same moral category as killing an adult human being. This also cleanly explains why killing infants is wrong, even though they aren't fully rational 'persons' yet.",
                 "drill_prompt": "What 3-letter acronym represents Marquis's main argument?", "drill_ans": ["flo"], "drill_exact": "FLO"
             }
         ],
@@ -255,23 +254,6 @@ curriculum = {
             {"q": "Does Marquis get bogged down in defining 'personhood'?", "opts": ["Yes", "No"], "ans": "No"},
             {"q": "According to Marquis, does a fetus possess a Future Like Ours?", "opts": ["Yes", "No"], "ans": "Yes"},
             {"q": "What is the ultimate conclusion of Marquis's argument?", "opts": ["Abortion is seriously immoral", "Abortion is permissible"], "ans": "Abortion is seriously immoral"}
-        ]
-    },
-    14: {
-        "title": "Chapter 14: The Beary Good Review 🐻",
-        "sections": [
-            {
-                "subtitle": "Everything is Better with Bears",
-                "text": "<div class='bear-box'>🐾 <b>Welcome to the Beary Good Review!</b> 🐾<br><br>Let's map everything you just learned into silly bear stories to lock it in your memory:<br><br><b>1. The Evil Cavemate (OMS):</b> Your cavemate traps you in the cave so you miss the salmon run. Is this wrong? Yes! But <i>Ontological Moral Skepticism (OMS)</i> says there are NO moral facts, which is silly.<br><br><b>2. The Eccentric Honey-Maker (Pogge):</b> A rich bear gives starving bears a 50/50 chance of honey or a wasp sting. This provides a 'net benefit' but violates the <b>Exception to Moral Freedom</b> because he exploits their desperation!<br><br><b>3. D-Lab Bear (Trials):</b> Greedy D-Lab bear wants to test new cough syrup. They prefer <b>Placebo-Rich</b> (fake syrup in a rich forest) because it's cheap and the bears can afford the real syrup later. But morally, they should run <b>Active-Rich</b>!<br><br><b>4. The Famous Bear-olinist (Thomson):</b> You are kidnapped and hooked up to a musical bear who needs your honey-filtered blood. Proves that the <b>Right to Life</b> does NOT mean the right to use your body!<br><br><b>5. The Direct Mauling Argument (DKA):</b> Argues that directly mauling an innocent is worse than letting someone die. The <b>Extreme Bear View (EBV)</b> says you can never unhook, even to save yourself.<br><br><b>6. The Mama Bear's Cave (SLEV vs. Mod-pro):</b> <b>SLEV</b> says only Mama Bear can save herself from danger; Dr. Bear cannot help. But Thomson argues Mama Bear has <b>Moral Ownership</b> of her cave, so Dr. Bear CAN help! <b>Mod-pro</b> allows Dr. Bear to intervene in life-or-death emergencies.<br><br><b>7. The VIP Picnic Basket (Honda Civic):</b> A bear wanders off with your picnic basket by mistake. This disproves <b>Rights Generators 1-4</b>—innocent arrival doesn't mean they own your basket!<br><br><b>8. A Forest Like Ours (FLO):</b> Why is it wrong to hunt a bear? Because it deprives them of a <b>Future Like Ours</b> (eating berries, catching salmon). Marquis applies this to say abortion is wrong!</div>",
-                "drill_prompt": "What does the Famous Bear-olinist prove that the Right to Life does NOT include?", "drill_ans": ["use of a body", "right to use your body", "bare minimum"], "drill_exact": "The right to use another's body (the bare minimum)"
-            }
-        ],
-        "exam": [
-            {"q": "What does the Eccentric Honey-Maker violate?", "opts": ["Exception to Moral Freedom", "Moral Ownership"], "ans": "Exception to Moral Freedom"},
-            {"q": "What does the Famous Bear-olinist prove?", "opts": ["Right to Life doesn't equal right to a body", "Direct mauling is wrong"], "ans": "Right to Life doesn't equal right to a body"},
-            {"q": "What does Mama Bear's Cave prove about SLEV?", "opts": ["Mama Bear has Moral Ownership, so Dr. Bear CAN help", "Only Mama Bear can save herself"], "ans": "Mama Bear has Moral Ownership, so Dr. Bear CAN help"},
-            {"q": "What does the VIP Picnic Basket disprove?", "opts": ["Rights Generators 1-4", "A Forest Like Ours"], "ans": "Rights Generators 1-4"},
-            {"q": "What is Marquis's FLO in bear terms?", "opts": ["A Forest Like Ours", "A Furry Little Otter"], "ans": "A Forest Like Ours"}
         ]
     }
 }
@@ -387,15 +369,15 @@ if st.session_state.current_ch == 0 and not st.session_state.show_flashcards:
 else:
     st.sidebar.markdown("🏠 Cover Page")
 
-for i in range(1, 15):
+for i in range(1, 14):
     if st.session_state.current_ch == i and not st.session_state.show_flashcards:
         st.sidebar.markdown(f"**👉 Ch {i}: {curriculum[i]['title'].split(':')[1].strip()}**")
     else:
         st.sidebar.markdown(f"Ch {i}")
 
-if st.session_state.current_ch == 15: st.sidebar.markdown("**👉 Redo Gauntlet**")
+if st.session_state.current_ch == 14: st.sidebar.markdown("**👉 Redo Gauntlet**")
 else: st.sidebar.markdown("Redo Gauntlet")
-if st.session_state.current_ch == 16: st.sidebar.markdown("**👉 Final Exam**")
+if st.session_state.current_ch == 15: st.sidebar.markdown("**👉 Final Exam**")
 else: st.sidebar.markdown("Final Exam")
 
 # --- GLOBAL FLASHCARD UI OVERRIDE ---
@@ -431,11 +413,11 @@ if st.session_state.show_flashcards:
 
 # --- COVER PAGE (Ch 0) ---
 if st.session_state.current_ch == 0:
-    st.title("🐻 The Beary Good Phil 4 Master Class 🐾")
+    st.title("📚 Philosophy 4 Master Class")
     st.markdown("### Your Ultimate Interactive Study Guide for Exam 2")
     st.markdown("""
         <div class='cover-box'>
-            <h2>Welcome to Philosophy 4!</h2>
+            <h2>Welcome!</h2>
             <p>This app contains the <b>ENTIRE</b> course material for Exam 2, structured exactly to Professor McHose's specifications.</p>
             <p>You will explore:</p>
             <ul style='text-align: left; display: inline-block;'>
@@ -449,12 +431,12 @@ if st.session_state.current_ch == 0:
         </div>
     """, unsafe_allow_html=True)
     
-    if st.button("🚀 START THE LESSON 🐾", use_container_width=True):
+    if st.button("🚀 START THE LESSON", use_container_width=True):
         st.session_state.current_ch = 1
         st.rerun()
 
-# --- MAIN APP LOGIC (Ch 1-14) ---
-elif st.session_state.current_ch <= 14:
+# --- MAIN APP LOGIC (Ch 1-13) ---
+elif st.session_state.current_ch <= 13:
     ch = st.session_state.current_ch
     ch_data = curriculum[ch]
     st.title(ch_data["title"])
@@ -539,13 +521,13 @@ elif st.session_state.current_ch <= 14:
                         st.session_state.ch_exam_failed = True
                         st.rerun()
 
-# STAGE 15: REDO GAUNTLET
-elif st.session_state.current_ch == 15:
+# STAGE 14: REDO GAUNTLET
+elif st.session_state.current_ch == 14:
     st.title("🧠 The Redo Gauntlet")
     if len(st.session_state.redo_queue) == 0:
         st.success("🎉 Gauntlet cleared! You are ready for the Final Exam.")
         if st.button("Start Final Exam 📝"):
-            st.session_state.current_ch = 16
+            st.session_state.current_ch = 15
             st.rerun()
     else:
         st.warning(f"{len(st.session_state.redo_queue)} questions to review before the exam.")
@@ -560,8 +542,8 @@ elif st.session_state.current_ch == 15:
             else:
                 st.error(f"❌ Still incorrect. Answer is **{curr['exact']}**")
 
-# STAGE 16: FINAL EXAM
-elif st.session_state.current_ch == 16:
+# STAGE 15: FINAL EXAM
+elif st.session_state.current_ch == 15:
     st.title("📝 Comprehensive Final Exam")
     st.write("20 randomly selected questions from the massive test bank. You must get each correct to proceed.")
     
